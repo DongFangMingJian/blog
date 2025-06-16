@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft | 互动式前端教学平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #ff6b6b;
+            --accent: #3a86ff;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #06d6a0;
+            --warning: #ffd166;
+            --card-bg: #ffffff;
+            --sidebar-bg: #f0f4f8;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        .dark-theme {
+            --dark: #121212;
+            --light: #1e1e1e;
+            --card-bg: #252525;
+            --sidebar-bg: #2d2d2d;
+            --gray: #a0a0a0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            transition: var(--transition);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .code-font {
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        /* 侧边导航 */
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            transition: var(--transition);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 0.8rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+
+        .user-name {
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .user-status {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(67, 97, 238, 0.2);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .progress-value {
+            height: 100%;
+            background: var(--success);
+            width: 45%;
+            border-radius: 3px;
+        }
+
+        .nav-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin: 1.5rem 0 1rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-links i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .search-box {
+            display: flex;
+            width: 300px;
+            background: var(--card-bg);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 0.5rem;
+            font-size: 1rem;
+            outline: none;
+            color: var(--dark);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+
+        /* 学习模块 */
+        .learning-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+
+        .module-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .module-content {
+            padding: 1.5rem;
+        }
+
+        .module-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        /* 当前课程 */
+        .current-course {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .course-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .course-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .course-info p {
+            opacity: 0.9;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .lesson-list {
+            list-style: none;
+        }
+
+        .lesson-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .lesson-item:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-item:hover {
+            background: rgba(67, 97, 238, 0.05);
+        }
+
+        .lesson-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .lesson-item.completed .lesson-check {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .lesson-details {
+            flex: 1;
+        }
+
+        .lesson-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .lesson-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .lesson-duration {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* 代码编辑器区域 */
+        .editor-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .code-editor {
+            background: #1e1e1e;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .editor-header {
+            background: #252526;
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #d4d4d4;
+            font-size: 0.9rem;
+        }
+
+        .editor-actions button {
+            background: #3c3c3c;
+            color: #d4d4d4;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .editor-actions button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .editor-body {
+            height: 400px;
+            padding: 1rem;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            color: #d4d4d4;
+            white-space: pre;
+            overflow: auto;
+            line-height: 1.5;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-tag {
+            color: #569cd6;
+        }
+
+        .code-attr {
+            color: #9cdcfe;
+        }
+
+        .code-string {
+            color: #ce9178;
+        }
+
+        .preview-pane {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .preview-header {
+            background: #f0f4f8;
+            padding: 0.8rem 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .preview-body {
+            height: 400px;
+            padding: 1rem;
+            overflow: auto;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                padding: 1rem 0.5rem;
+            }
+            
+            .logo-text, .user-info, .nav-title, .nav-links span {
+                display: none;
+            }
+            
+            .nav-links a {
+                justify-content: center;
+                padding: 1rem 0;
+            }
+            
+            .nav-links i {
+                margin-right: 0;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .editor-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边导航 -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="logo-text">CodeCraft</div>
+        </div>
+        
+        <div class="user-info">
+            <div class="user-avatar">JS</div>
+            <div>
+                <div class="user-name">前端学习者</div>
+                <div class="user-status">前端开发入门中</div>
+                <div class="progress-bar">
+                    <div class="progress-value"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-title">主菜单</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active"><i class="fas fa-home"></i> <span>学习仪表盘</span></a></li>
+            <li><a href="#"><i class="fas fa-book"></i> <span>我的课程</span></a></li>
+            <li><a href="#"><i class="fas fa-tasks"></i> <span>学习进度</span></a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i> <span>项目练习</span></a></li>
+            <li><a href="#"><i class="fas fa-trophy"></i> <span>成就徽章</span></a></li>
+        </ul>
+        
+        <div class="nav-title">学习模块</div>
+        <ul class="nav-links">
+            <li><a href="#"><i class="fab fa-html5"></i> <span>HTML5</span></a></li>
+            <li><a href="#"><i class="fab fa-css3-alt"></i> <span>CSS3</span></a></li>
+            <li><a href="#"><i class="fab fa-js"></i> <span>JavaScript</span></a></li>
+            <li><a href="#"><i class="fab fa-react"></i> <span>React</span></a></li>
+            <li><a href="#"><i class="fas fa-mobile-alt"></i> <span>响应式设计</span></a></li>
+        </ul>
+        
+        <div class="nav-title">资源中心</div>
+        <ul class="nav-links">
+            <li><a href="#"><i class="fas fa-book-open"></i> <span>学习文档</span></a></li>
+            <li><a href="#"><i class="fas fa-video"></i> <span>视频教程</span></a></li>
+            <li><a href="#"><i class="fas fa-code"></i> <span>代码片段</span></a></li>
+            <li><a href="#"><i class="fas fa-comments"></i> <span>社区讨论</span></a></li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <div class="header">
+            <h1 class="page-title">前端开发学习中心</h1>
+            <div style="display: flex; align-items: center;">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索课程、教程或问题...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="learning-modules">
+            <div class="module-card">
+                <div class="module-header">
+                    <div class="module-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="module-title">HTML5基础</h3>
+                    <p class="module-desc">学习构建网页的结构</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-stats">
+                        <span><i class="far fa-file-alt"></i> 12个课程</span>
+                        <span><i class="far fa-clock"></i> 8小时</span>
+                    </div>
+                    <button class="btn btn-primary">开始学习</button>
+                </div>
+            </div>
+            
+            <div class="module-card">
+                <div class="module-header">
+                    <div class="module-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="module-title">CSS3样式</h3>
+                    <p class="module-desc">掌握网页样式设计</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-stats">
+                        <span><i class="far fa-file-alt"></i> 18个课程</span>
+                        <span><i class="far fa-clock"></i> 12小时</span>
+                    </div>
+                    <button class="btn btn-primary">继续学习</button>
+                </div>
+            </div>
+            
+            <div class="module-card">
+                <div class="module-header">
+                    <div class="module-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="module-title">JavaScript编程</h3>
+                    <p class="module-desc">添加交互和动态功能</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-stats">
+                        <span><i class="far fa-file-alt"></i> 24个课程</span>
+                        <span><i class="far fa-clock"></i> 20小时</span>
+                    </div>
+                    <button class="btn btn-primary">开始学习</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="current-course">
+            <div class="course-header">
+                <div class="course-icon">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+                <div class="course-info">
+                    <h3>CSS布局技术</h3>
+                    <p>Flexbox与Grid布局系统</p>
+                </div>
+            </div>
+            <div class="course-content">
+                <h3 style="margin-bottom: 1rem;">课程目录</h3>
+                <ul class="lesson-list">
+                    <li class="lesson-item completed">
+                        <div class="lesson-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="lesson-details">
+                            <div class="lesson-title">CSS Flexbox基础</div>
+                            <div class="lesson-desc">了解Flex容器和项目的概念</div>
+                        </div>
+                        <div class="lesson-duration">25分钟</div>
+                    </li>
+                    
+                    <li class="lesson-item completed">
+                        <div class="lesson-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="lesson-details">
+                            <div class="lesson-title">Flexbox方向与换行</div>
+                            <div class="lesson-desc">flex-direction和flex-wrap属性</div>
+                        </div>
+                        <div class="lesson-duration">30分钟</div>
+                    </li>
+                    
+                    <li class="lesson-item">
+                        <div class="lesson-check">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="lesson-details">
+                            <div class="lesson-title">Flex项目对齐</div>
+                            <div class="lesson-desc">justify-content和align-items属性</div>
+                        </div>
+                        <div class="lesson-duration">35分钟</div>
+                    </li>
+                    
+                    <li class="lesson-item">
+                        <div class="lesson-check">
+                        </div>
+                        <div class="lesson-details">
+                            <div class="lesson-title">CSS Grid基础</div>
+                            <div class="lesson-desc">网格容器和网格项的概念</div>
+                        </div>
+                        <div class="lesson-duration">40分钟</div>
+                    </li>
+                    
+                    <li class="lesson-item">
+                        <div class="lesson-check">
+                        </div>
+                        <div class="lesson-details">
+                            <div class="lesson-title">网格轨道与间距</div>
+                            <div class="lesson-desc">grid-template-columns/rows和gap属性</div>
+                        </div>
+                        <div class="lesson-duration">45分钟</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 style="margin: 2rem 0 1rem;">CSS Flexbox布局练习</h2>
+        <p style="color: var(--gray); margin-bottom: 1rem;">尝试使用Flexbox属性创建一个导航菜单</p>
+        
+        <div class="editor-container">
+            <div class="code-editor">
+                <div class="editor-header">
+                    <div>flexbox-practice.html</div>
+                    <div class="editor-actions">
+                        <button>运行</button>
+                        <button>重置</button>
+                        <button>保存</button>
+                    </div>
+                </div>
+                <div class="editor-body">
+<span class="code-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="code-tag">&lt;html&gt;</span>
+<span class="code-tag">&lt;head&gt;</span>
+    <span class="code-tag">&lt;style&gt;</span>
+    <span class="code-comment">/* 在此编写CSS代码 */</span>
+    .nav-container {
+        <span class="code-comment">/* 设置容器为Flex布局 */</span>
+        display: flex;
+        <span class="code-comment">/* 设置主轴方向为水平 */</span>
+        flex-direction: row;
+        <span class="code-comment">/* 项目在主轴上的对齐方式 */</span>
+        justify-content: space-around;
+        <span class="code-comment">/* 项目在交叉轴上的对齐方式 */</span>
+        align-items: center;
+        background: #4361ee;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .nav-item {
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    
+    .nav-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+    <span class="code-tag">&lt;/style&gt;</span>
+<span class="code-tag">&lt;/head&gt;</span>
+<span class="code-tag">&lt;body&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-attr">class=</span><span class="code-string">"nav-container"</span><span class="code-tag">&gt;</span>
+        <span class="code-tag">&lt;a</span> <span class="code-attr">href=</span><span class="code-string">"#"</span> <span class="code-attr">class=</span><span class="code-string">"nav-item"</span><span class="code-tag">&gt;</span>首页<span class="code-tag">&lt;/a&gt;</span>
+        <span class="code-tag">&lt;a</span> <span class="code-attr">href=</span><span class="code-string">"#"</span> <span class="code-attr">class=</span><span class="code-string">"nav-item"</span><span class="code-tag">&gt;</span>课程<span class="code-tag">&lt;/a&gt;</span>
+        <span class="code-tag">&lt;a</span> <span class="code-attr">href=</span><span class="code-string">"#"</span> <span class="code-attr">class=</span><span class="code-string">"nav-item"</span><span class="code-tag">&gt;</span>项目<span class="code-tag">&lt;/a&gt;</span>
+        <span class="code-tag">&lt;a</span> <span class="code-attr">href=</span><span class="code-string">"#"</span> <span class="code-attr">class=</span><span class="code-string">"nav-item"</span><span class="code-tag">&gt;</span>社区<span class="code-tag">&lt;/a&gt;</span>
+        <span class="code-tag">&lt;a</span> <span class="code-attr">href=</span><span class="code-string">"#"</span> <span class="code-attr">class=</span><span class="code-string">"nav-item"</span><span class="code-tag">&gt;</span>关于<span class="code-tag">&lt;/a&gt;</span>
+    <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span>
+                </div>
+            </div>
+            
+            <div class="preview-pane">
+                <div class="preview-header">实时预览</div>
+                <div class="preview-body">
+                    <style>
+                    .nav-container {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        background: #4361ee;
+                        padding: 1rem;
+                        border-radius: 8px;
+                        font-family: 'Nunito', sans-serif;
+                    }
+                    
+                    .nav-item {
+                        color: white;
+                        padding: 0.5rem 1rem;
+                        text-decoration: none;
+                        font-weight: 600;
+                        transition: all 0.3s;
+                    }
+                    
+                    .nav-item:hover {
+                        background: rgba(255, 255, 255, 0.2);
+                        border-radius: 4px;
+                    }
+                    </style>
+                    
+                    <div class="nav-container">
+                        <a href="#" class="nav-item">首页</a>
+                        <a href="#" class="nav-item">课程</a>
+                        <a href="#" class="nav-item">项目</a>
+                        <a href="#" class="nav-item">社区</a>
+                        <a href="#" class="nav-item">关于</a>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">练习任务</h3>
+                    <p>尝试修改以下属性并观察效果：</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>将flex-direction改为column</li>
+                        <li>将justify-content改为flex-start</li>
+                        <li>将align-items改为flex-start</li>
+                        <li>添加flex-wrap: wrap属性</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem; background: #f0f4f8; padding: 1rem; border-radius: 8px;">
+                        <h4><i class="fas fa-lightbulb"></i> 学习提示</h4>
+                        <p>使用Flexbox时，记住容器属性控制所有项目的布局，而项目属性可以覆盖个别项目的默认行为。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 主题切换功能
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // 保存主题偏好
+            const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // 页面加载时应用保存的主题
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+        
+        // 模拟课程进度
+        const progressValue = document.querySelector('.progress-value');
+        let progress = 45;
+        
+        // 课程项点击事件
+        const lessonItems = document.querySelectorAll('.lesson-item');
+        lessonItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (!item.classList.contains('completed')) {
+                    item.classList.add('completed');
+                    progress += 10;
+                    if (progress > 100) progress = 100;
+                    progressValue.style.width = `${progress}%`;
+                    
+                    // 更新进度提示
+                    const userStatus = document.querySelector('.user-status');
+                    userStatus.textContent = `已完成 ${index + 3}/5 课程`;
+                }
+            });
+        });
+        
+        // 模块卡片点击事件
+        const moduleCards = document.querySelectorAll('.module-card');
+        moduleCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('btn')) {
+                    const title = card.querySelector('.module-title').textContent;
+                    alert(`准备开始学习：${title}`);
+                }
+            });
+        });
+        
+        // 运行按钮功能
+        document.querySelector('.editor-actions button').addEventListener('click', () => {
+            alert('代码已运行！在实际环境中，这里会执行代码并在预览窗格显示结果');
+        });
+    </script>
+</body>
+</html>
