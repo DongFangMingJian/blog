@@ -1,0 +1,1588 @@
+<!DOCTYPE html><html><head>
+      <title>数学</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\11258\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}/* 数学笔记本主题CSS - 专为数学笔记设计（表格优化版） */
+:root {
+  --paper-color: #f8f4e8;
+  --grid-color: rgba(210, 180, 140, 0.15);
+  --text-color: #333;
+  --emphasis-color: #c00;
+  --italic-color: #0066cc;
+  --link-color: #0066cc;
+  --link-hover: #0088ff;
+  --code-bg: #f5f5f5;
+  --border-color: #d6c7a8;
+}
+
+html body {
+  font-family: 'SimSun', '宋体', 'STSong', 'Songti SC', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text-color);
+  background-color: var(--paper-color);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 15px;
+  overflow: initial;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 标题样式 - 调小间距 */
+html body h1, 
+html body h2, 
+html body h3 {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2;
+}
+
+html body h1 {
+  font-size: 2.25em;
+  border-bottom: none !important;
+}
+
+html body h2 {
+  font-size: 1.75em;
+  border-bottom: none !important;
+}
+
+html body h3 {
+  font-size: 1.5em;
+  border-bottom: none !important;
+}
+
+html body h4, 
+html body h5, 
+html body h6 {
+  font-weight: 700;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  text-align: left;
+  line-height: 1.2;
+}
+
+html body h4 {
+  font-size: 1.25em;
+}
+
+html body h5 {
+  font-size: 1.1em;
+}
+
+html body h6 {
+  font-size: 1em;
+  color: #444;
+}
+
+/* 强调样式 - 加粗红色 */
+html body strong {
+  color: var(--emphasis-color);
+  font-weight: 700;
+}
+
+/* 斜体样式 - 不斜体、加粗、正蓝色 */
+html body em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--italic-color);
+}
+
+/* 链接样式 */
+html body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+html body a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-color);
+}
+
+html body a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
+
+/* 图片 */
+html body img {
+  max-width: 100%;
+  display: block;
+  margin: 0.8em auto;
+}
+
+/* 段落 - 调小间距，行高与正文一致 */
+html body > p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* 列表 - 调整间距和行高 */
+html body > ol, 
+html body > ul {
+  margin-bottom: 12px;
+  margin-top: 0;
+  line-height: 1.4; /* 列表整体行高与正文一致 */
+}
+
+/* 有序列表 - 保持数字标记 */
+html body ol {
+  padding-left: 1.8em;
+  list-style-type: decimal;
+}
+
+/* 无序列表 - 使用小圆点且较小 */
+html body ul {
+  padding-left: 1.8em;
+  list-style-type: disc; /* 使用实心圆点 */
+}
+
+/* 无序列表小圆点调小 */
+html body ul li::marker {
+  font-size: 0.7em; /* 圆点调小 */
+  color: #666; /* 圆点颜色调暗 */
+}
+
+/* 二级无序列表 - 使用空心圆点 */
+html body ul ul {
+  list-style-type: circle;
+}
+
+/* 三级无序列表 - 使用实心方块 */
+html body ul ul ul {
+  list-style-type: square;
+}
+
+/* 去除.no-list的列表标记 */
+html body ol.no-list, 
+html body ul.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* 嵌套列表间距调整 */
+html body ol ol, 
+html body ol ul, 
+html body ul ol, 
+html body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 列表项 - 调整行高和间距 */
+html body li {
+  margin-bottom: 0;
+  line-height: 1.4; /* 列表项行高与正文一致 */
+  padding-top: 1px; /* 轻微顶部内边距，确保视觉舒适 */
+  padding-bottom: 1px; /* 轻微底部内边距 */
+}
+
+/* 任务列表项 */
+html body li.task-list-item {
+  list-style: none;
+}
+
+/* 列表项内的段落 */
+html body li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4; /* 确保列表内段落行高一致 */
+}
+
+/* 任务列表复选框 */
+html body .task-list-item-checkbox {
+  margin: 0 .2em .2em -1.6em;
+  vertical-align: middle;
+}
+
+html body .task-list-item-checkbox:hover {
+  cursor: pointer;
+}
+
+/* 引用块 - 透明背景，仅用于缩进 */
+html body blockquote {
+  margin: 8px 0;
+  font-size: inherit;
+  padding: 0 0 0 24px;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-left: none;
+  font-family: inherit;
+  line-height: inherit;
+  position: relative;
+}
+
+/* 可选：添加一个非常淡的左侧竖线作为缩进指示 */
+html body blockquote::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+/* 可选：给blockquote内部的第一个和最后一个元素微调间距 */
+html body blockquote > :first-child {
+  margin-top: 0;
+}
+
+html body blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* 水平线 */
+html body hr {
+  height: 2px;
+  margin: 24px 0;
+  background-color: var(--border-color);
+  border: 0 none;
+}
+
+/* 表格 - 完全透明和无边框样式 */
+html body table {
+  margin: 8px 0 12px 0;/* 数学笔记本主题CSS - 专为数学笔记设计（表格换行优化版） */
+:root {
+  --paper-color: #f8f4e8;
+  --grid-color: rgba(210, 180, 140, 0.15);
+  --text-color: #333;
+  --emphasis-color: #c00;
+  --italic-color: #0066cc;
+  --link-color: #0066cc;
+  --link-hover: #0088ff;
+  --code-bg: #f5f5f5;
+  --border-color: #d6c7a8;
+}
+
+html body {
+  font-family: 'SimSun', '宋体', 'STSong', 'Songti SC', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text-color);
+  background-color: var(--paper-color);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 15px;
+  overflow: initial;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 标题样式 - 调小间距 */
+html body h1, 
+html body h2, 
+html body h3 {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2;
+}
+
+html body h1 {
+  font-size: 2.25em;
+  border-bottom: none !important;
+}
+
+html body h2 {
+  font-size: 1.75em;
+  border-bottom: none !important;
+}
+
+html body h3 {
+  font-size: 1.5em;
+  border-bottom: none !important;
+}
+
+html body h4, 
+html body h5, 
+html body h6 {
+  font-weight: 700;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  text-align: left;
+  line-height: 1.2;
+}
+
+html body h4 {
+  font-size: 1.25em;
+}
+
+html body h5 {
+  font-size: 1.1em;
+}
+
+html body h6 {
+  font-size: 1em;
+  color: #444;
+}
+
+/* 强调样式 - 加粗红色 */
+html body strong {
+  color: var(--emphasis-color);
+  font-weight: 700;
+}
+
+/* 斜体样式 - 不斜体、加粗、正蓝色 */
+html body em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--italic-color);
+}
+
+/* 链接样式 */
+html body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+html body a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-color);
+}
+
+html body a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
+
+/* 图片 */
+html body img {
+  max-width: 100%;
+  display: block;
+  margin: 0.8em auto;
+}
+
+/* 段落 - 调小间距，行高与正文一致 */
+html body > p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* 列表 - 调整间距和行高 */
+html body > ol, 
+html body > ul {
+  margin-bottom: 12px;
+  margin-top: 0;
+  line-height: 1.4; /* 列表整体行高与正文一致 */
+}
+
+/* 有序列表 - 保持数字标记 */
+html body ol {
+  padding-left: 1.8em;
+  list-style-type: decimal;
+}
+
+/* 无序列表 - 使用小圆点且较小 */
+html body ul {
+  padding-left: 1.8em;
+  list-style-type: disc; /* 使用实心圆点 */
+}
+
+/* 无序列表小圆点调小 */
+html body ul li::marker {
+  font-size: 0.7em; /* 圆点调小 */
+  color: #666; /* 圆点颜色调暗 */
+}
+
+/* 二级无序列表 - 使用空心圆点 */
+html body ul ul {
+  list-style-type: circle;
+}
+
+/* 三级无序列表 - 使用实心方块 */
+html body ul ul ul {
+  list-style-type: square;
+}
+
+/* 去除.no-list的列表标记 */
+html body ol.no-list, 
+html body ul.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* 嵌套列表间距调整 */
+html body ol ol, 
+html body ol ul, 
+html body ul ol, 
+html body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 列表项 - 调整行高和间距 */
+html body li {
+  margin-bottom: 0;
+  line-height: 1.4; /* 列表项行高与正文一致 */
+  padding-top: 1px; /* 轻微顶部内边距，确保视觉舒适 */
+  padding-bottom: 1px; /* 轻微底部内边距 */
+}
+
+/* 任务列表项 */
+html body li.task-list-item {
+  list-style: none;
+}
+
+/* 列表项内的段落 */
+html body li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4; /* 确保列表内段落行高一致 */
+}
+
+/* 任务列表复选框 */
+html body .task-list-item-checkbox {
+  margin: 0 .2em .2em -1.6em;
+  vertical-align: middle;
+}
+
+html body .task-list-item-checkbox:hover {
+  cursor: pointer;
+}
+
+/* 引用块 - 透明背景，仅用于缩进 */
+html body blockquote {
+  margin: 8px 0;
+  font-size: inherit;
+  padding: 0 0 0 24px;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-left: none;
+  font-family: inherit;
+  line-height: inherit;
+  position: relative;
+}
+
+/* 可选：添加一个非常淡的左侧竖线作为缩进指示 */
+html body blockquote::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+/* 可选：给blockquote内部的第一个和最后一个元素微调间距 */
+html body blockquote > :first-child {
+  margin-top: 0;
+}
+
+html body blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* 水平线 */
+html body hr {
+  height: 2px;
+  margin: 24px 0;
+  background-color: var(--border-color);
+  border: 0 none;
+}
+
+/* 表格 - 完全透明和无边框样式，支持自动换行 */
+html body table {
+  margin: 8px 0 12px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table; /* 改为table，而不是block */
+  width: 100%;
+  /* 移除overflow: auto; 防止出现水平滚动条 */
+  word-break: break-word; /* 允许单词内换行 */
+  word-wrap: break-word; /* 允许长单词换行 */
+  border: none; /* 去除外边框 */
+  font-size: 1em; /* 恢复为正常字体大小 */
+  table-layout: fixed; /* 固定表格布局，确保列宽均匀分配 */
+}
+
+/* 表头 - 去除特殊样式 */
+html body table th {
+  font-weight: normal; /* 去除加粗 */
+  color: inherit; /* 继承正文颜色 */
+  background-color: transparent; /* 透明背景 */
+  border: none; /* 无边框 */
+  font-family: inherit; /* 继承正文字体 */
+  text-align: left; /* 左对齐 */
+}
+
+/* 表格单元格和表头 */
+html body table td, 
+html body table th {
+  border: none; /* 无边框 */
+  padding: 4px 8px; /* 减小内边距 */
+  vertical-align: top; /* 顶部对齐 */
+  font-family: inherit; /* 继承正文字体 */
+  font-size: 1em; /* 正常字体大小 */
+  line-height: 1.4; /* 与正文行高一致 */
+  color: inherit; /* 继承正文颜色 */
+  word-wrap: break-word; /* 单元格内允许换行 */
+  word-break: break-word; /* 允许单词内断字换行 */
+  overflow-wrap: break-word; /* 现代浏览器中的换行属性 */
+  white-space: normal; /* 允许换行（覆盖默认的nowrap） */
+}
+
+/* 可选：为表格添加极淡的背景色，仅用于区分行 */
+html body table tr:nth-child(even) {
+  background-color: rgba(210, 180, 140, 0.03); /* 非常淡的背景色 */
+}
+
+/* 可选：为表头添加极淡的背景色 */
+html body table thead tr {
+  background-color: rgba(210, 180, 140, 0.05); /* 非常淡的背景色 */
+}
+
+/* 表格内链接样式 */
+html body table a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-color);
+}
+
+html body table a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
+
+/* 表格内强调样式 */
+html body table strong {
+  color: var(--emphasis-color);
+  font-weight: 700;
+}
+
+/* 表格内斜体样式 */
+html body table em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--italic-color);
+}
+
+/* 表格内代码样式 */
+html body table code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  color: #000;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  padding: 1px 4px;
+  border: 1px solid #e0e0e0;
+  line-height: 1.3;
+  word-break: break-word; /* 表格内代码也允许换行 */
+  white-space: normal; /* 允许代码换行 */
+}
+
+/* 定义列表 - 调小间距 */
+html body dl {
+  padding: 0;
+}
+
+html body dl dt {
+  padding: 0;
+  margin-top: 12px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+html body dl dd {
+  padding: 0 12px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* 行内代码 */
+html body code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  color: #000;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  padding: 1px 4px;
+  border: 1px solid #e0e0e0;
+  line-height: 1.3;
+}
+
+html body code::after, 
+html body code::before {
+  letter-spacing: -0.2em;
+  content: '\00a0';
+}
+
+/* 代码块 - 调小间距 */
+html body pre > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+  line-height: 1.3;
+}
+
+html body .highlight {
+  margin-bottom: 12px;
+}
+
+html body .highlight pre, 
+html body pre {
+  padding: 0.8em;
+  overflow: auto;
+  line-height: 1.3;
+  background-color: #f6f6f6;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+html body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+html body pre code, 
+html body pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+html body pre code:after, 
+html body pre code:before, 
+html body pre tt:after, 
+html body pre tt:before {
+  content: normal;
+}
+
+/* 间距调整 - 统一调小 */
+html body blockquote, 
+html body dl, 
+html body ol, 
+html body p, 
+html body pre, 
+html body ul {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* 键盘按键样式 */
+html body kbd {
+  color: #000;
+  border: 1px solid var(--border-color);
+  border-bottom: 2px solid #c7c7c7;
+  padding: 1px 3px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* 数学公式相关 - 调小公式字体大小 */
+.katex, 
+.math {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9em !important; /* 调小一号 */
+}
+
+/* 行内公式调整 */
+.katex-display {
+  font-size: 0.9em !important; /* 行间公式也调小 */
+  margin: 0.5em 0 !important; /* 调小行间公式的边距 */
+}
+
+/* 行间公式容器 */
+.equation {
+  text-align: center;
+  margin: 0.8em 0; /* 从1em调小到0.8em */
+  padding: 6px; /* 从8px调小到6px */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  font-size: 0.9em; /* 公式容器内的字体也调小 */
+}
+
+/* 行内数学符号调整 */
+.mjx-chtml,
+.mjx-math {
+  font-size: 0.9em !important; /* MathJax公式调小 */
+}
+
+/* 确保所有公式相关的元素都调小 */
+.katex *,
+.math *,
+.mjx-chtml *,
+.mjx-math * {
+  font-size: inherit; /* 继承父元素的缩小比例 */
+}
+
+/* 自定义缩进级别 - 通过嵌套blockquote实现多级缩进 */
+html body blockquote blockquote {
+  padding-left: 48px;
+  margin: 4px 0;
+}
+
+html body blockquote blockquote::before {
+  left: 34px;
+}
+
+html body blockquote blockquote blockquote {
+  padding-left: 72px;
+}
+
+html body blockquote blockquote blockquote::before {
+  left: 58px;
+}
+
+/* 打印样式 */
+@media print {
+  html body {
+    background-color: #fff;
+    background-image: none;
+    padding: 0;
+    box-shadow: none;
+    line-height: 1.3;
+  }
+  
+  html body h1, 
+  html body h2, 
+  html body h3, 
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    color: #000;
+    page-break-after: avoid;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  /* 打印时blockquote保持透明和缩进 */
+  html body blockquote {
+    background-color: transparent;
+    border: none;
+    padding-left: 20px;
+    margin: 6px 0;
+  }
+  
+  /* 打印时隐藏竖线指示 */
+  html body blockquote::before {
+    display: none;
+  }
+  
+  /* 打印时列表标记 */
+  html body ul {
+    list-style-type: disc;
+  }
+  
+  html body ul ul {
+    list-style-type: circle;
+  }
+  
+  html body ul ul ul {
+    list-style-type: square;
+  }
+  
+  /* 打印时表格样式 */
+  html body table {
+    border: none;
+    background-color: transparent;
+    display: table;
+    table-layout: auto; /* 打印时使用自动布局 */
+  }
+  
+  html body table th {
+    font-weight: normal;
+    background-color: transparent;
+  }
+  
+  html body table td,
+  html body table th {
+    border: none;
+    padding: 3px 6px; /* 打印时内边距更小 */
+    white-space: normal; /* 确保打印时也能换行 */
+    word-break: break-word; /* 打印时也允许换行 */
+  }
+  
+  /* 打印时去除表格背景色 */
+  html body table tr:nth-child(even),
+  html body table thead tr {
+    background-color: transparent;
+  }
+  
+  /* 打印时公式调小 */
+  .katex,
+  .math,
+  .katex-display,
+  .mjx-chtml,
+  .mjx-math {
+    font-size: 0.85em !important; /* 打印时更小 */
+  }
+  
+  html body pre {
+    page-break-inside: avoid;
+    padding: 0.6em;
+  }
+  
+  html body img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0.5em auto;
+  }
+  
+  html body code, 
+  html body pre {
+    word-wrap: break-word;
+    white-space: pre;
+  }
+  
+  /* 确保打印时强调和斜体样式可见 */
+  html body strong {
+    color: #000 !important;
+  }
+  
+  html body em {
+    color: #000 !important;
+  }
+  
+  /* 打印时所有间距进一步减小 */
+  html body > p,
+  html body > ol,
+  html body > ul,
+  html body blockquote,
+  html body dl,
+  html body pre,
+  html body .highlight {
+    margin-bottom: 10px;
+  }
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+  html body {
+    padding: 12px;
+    background-size: 15px 15px;
+    line-height: 1.35;
+  }
+  
+  html body h1 {
+    font-size: 1.8em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h2 {
+    font-size: 1.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h3 {
+    font-size: 1.3em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  
+  /* 移动设备上缩进稍小 */
+  html body blockquote {
+    padding-left: 20px;
+    margin: 6px 0;
+  }
+  
+  html body blockquote::before {
+    left: 12px;
+  }
+  
+  html body blockquote blockquote {
+    padding-left: 36px;
+  }
+  
+  html body blockquote blockquote::before {
+    left: 28px;
+  }
+  
+  html body blockquote blockquote blockquote {
+    padding-left: 52px;
+  }
+  
+  html body blockquote blockquote blockquote::before {
+    left: 44px;
+  }
+  
+  /* 移动设备上列表缩进稍小 */
+  html body ol, 
+  html body ul {
+    padding-left: 1.5em;
+  }
+  
+  /* 移动设备上表格内边距更小 */
+  html body table td,
+  html body table th {
+    padding: 3px 6px;
+  }
+  
+  /* 移动设备上表格使用固定布局，确保在小屏幕上也能正常显示 */
+  html body table {
+    table-layout: fixed;
+  }
+  
+  /* 移动设备上公式进一步调小 */
+  .katex,
+  .math,
+  .katex-display,
+  .mjx-chtml,
+  .mjx-math {
+    font-size: 0.85em !important;
+  }
+  
+  /* 移动设备上间距进一步减小 */
+  html body > p,
+  html body > ol,
+  html body > ul,
+  html body blockquote,
+  html body dl,
+  html body pre,
+  html body .highlight {
+    margin-bottom: 10px;
+  }
+}
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  width: 100%;
+  word-break: normal;
+  word-break: keep-all;
+  border: none; /* 去除外边框 */
+  font-size: 1em; /* 恢复为正常字体大小 */
+}
+
+/* 表头 - 去除特殊样式 */
+html body table th {
+  font-weight: normal; /* 去除加粗 */
+  color: inherit; /* 继承正文颜色 */
+  background-color: transparent; /* 透明背景 */
+  border: none; /* 无边框 */
+  font-family: inherit; /* 继承正文字体 */
+  text-align: left; /* 左对齐 */
+}
+
+/* 表格单元格和表头 */
+html body table td, 
+html body table th {
+  border: none; /* 无边框 */
+  padding: 4px 8px; /* 减小内边距 */
+  vertical-align: top; /* 顶部对齐 */
+  font-family: inherit; /* 继承正文字体 */
+  font-size: 1em; /* 正常字体大小 */
+  line-height: 1.4; /* 与正文行高一致 */
+  color: inherit; /* 继承正文颜色 */
+}
+
+/* 可选：为表格添加极淡的背景色，仅用于区分行 */
+html body table tr:nth-child(even) {
+  background-color: rgba(210, 180, 140, 0.03); /* 非常淡的背景色 */
+}
+
+/* 可选：为表头添加极淡的背景色 */
+html body table thead tr {
+  background-color: rgba(210, 180, 140, 0.05); /* 非常淡的背景色 */
+}
+
+/* 表格内链接样式 */
+html body table a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-color);
+}
+
+html body table a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
+
+/* 表格内强调样式 */
+html body table strong {
+  color: var(--emphasis-color);
+  font-weight: 700;
+}
+
+/* 表格内斜体样式 */
+html body table em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--italic-color);
+}
+
+/* 表格内代码样式 */
+html body table code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  color: #000;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  padding: 1px 4px;
+  border: 1px solid #e0e0e0;
+  line-height: 1.3;
+}
+
+/* 定义列表 - 调小间距 */
+html body dl {
+  padding: 0;
+}
+
+html body dl dt {
+  padding: 0;
+  margin-top: 12px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+html body dl dd {
+  padding: 0 12px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* 行内代码 */
+html body code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  color: #000;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  padding: 1px 4px;
+  border: 1px solid #e0e0e0;
+  line-height: 1.3;
+}
+
+html body code::after, 
+html body code::before {
+  letter-spacing: -0.2em;
+  content: '\00a0';
+}
+
+/* 代码块 - 调小间距 */
+html body pre > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+  line-height: 1.3;
+}
+
+html body .highlight {
+  margin-bottom: 12px;
+}
+
+html body .highlight pre, 
+html body pre {
+  padding: 0.8em;
+  overflow: auto;
+  line-height: 1.3;
+  background-color: #f6f6f6;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+html body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+html body pre code, 
+html body pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+html body pre code:after, 
+html body pre code:before, 
+html body pre tt:after, 
+html body pre tt:before {
+  content: normal;
+}
+
+/* 间距调整 - 统一调小 */
+html body blockquote, 
+html body dl, 
+html body ol, 
+html body p, 
+html body pre, 
+html body ul {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* 键盘按键样式 */
+html body kbd {
+  color: #000;
+  border: 1px solid var(--border-color);
+  border-bottom: 2px solid #c7c7c7;
+  padding: 1px 3px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* 数学公式相关 - 调小公式字体大小 */
+.katex, 
+.math {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9em !important; /* 调小一号 */
+}
+
+/* 行内公式调整 */
+.katex-display {
+  font-size: 0.9em !important; /* 行间公式也调小 */
+  margin: 0.5em 0 !important; /* 调小行间公式的边距 */
+}
+
+/* 行间公式容器 */
+.equation {
+  text-align: center;
+  margin: 0.8em 0; /* 从1em调小到0.8em */
+  padding: 6px; /* 从8px调小到6px */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  font-size: 0.9em; /* 公式容器内的字体也调小 */
+}
+
+/* 行内数学符号调整 */
+.mjx-chtml,
+.mjx-math {
+  font-size: 0.9em !important; /* MathJax公式调小 */
+}
+
+/* 确保所有公式相关的元素都调小 */
+.katex *,
+.math *,
+.mjx-chtml *,
+.mjx-math * {
+  font-size: inherit; /* 继承父元素的缩小比例 */
+}
+
+/* 自定义缩进级别 - 通过嵌套blockquote实现多级缩进 */
+html body blockquote blockquote {
+  padding-left: 48px;
+  margin: 4px 0;
+}
+
+html body blockquote blockquote::before {
+  left: 34px;
+}
+
+html body blockquote blockquote blockquote {
+  padding-left: 72px;
+}
+
+html body blockquote blockquote blockquote::before {
+  left: 58px;
+}
+
+/* 打印样式 */
+@media print {
+  html body {
+    background-color: #fff;
+    background-image: none;
+    padding: 0;
+    box-shadow: none;
+    line-height: 1.3;
+  }
+  
+  html body h1, 
+  html body h2, 
+  html body h3, 
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    color: #000;
+    page-break-after: avoid;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  /* 打印时blockquote保持透明和缩进 */
+  html body blockquote {
+    background-color: transparent;
+    border: none;
+    padding-left: 20px;
+    margin: 6px 0;
+  }
+  
+  /* 打印时隐藏竖线指示 */
+  html body blockquote::before {
+    display: none;
+  }
+  
+  /* 打印时列表标记 */
+  html body ul {
+    list-style-type: disc;
+  }
+  
+  html body ul ul {
+    list-style-type: circle;
+  }
+  
+  html body ul ul ul {
+    list-style-type: square;
+  }
+  
+  /* 打印时表格样式 */
+  html body table {
+    border: none;
+    background-color: transparent;
+  }
+  
+  html body table th {
+    font-weight: normal;
+    background-color: transparent;
+  }
+  
+  html body table td,
+  html body table th {
+    border: none;
+    padding: 3px 6px; /* 打印时内边距更小 */
+  }
+  
+  /* 打印时去除表格背景色 */
+  html body table tr:nth-child(even),
+  html body table thead tr {
+    background-color: transparent;
+  }
+  
+  /* 打印时公式调小 */
+  .katex,
+  .math,
+  .katex-display,
+  .mjx-chtml,
+  .mjx-math {
+    font-size: 0.85em !important; /* 打印时更小 */
+  }
+  
+  html body pre {
+    page-break-inside: avoid;
+    padding: 0.6em;
+  }
+  
+  html body img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0.5em auto;
+  }
+  
+  html body code, 
+  html body pre {
+    word-wrap: break-word;
+    white-space: pre;
+  }
+  
+  /* 确保打印时强调和斜体样式可见 */
+  html body strong {
+    color: #000 !important;
+  }
+  
+  html body em {
+    color: #000 !important;
+  }
+  
+  /* 打印时所有间距进一步减小 */
+  html body > p,
+  html body > ol,
+  html body > ul,
+  html body blockquote,
+  html body dl,
+  html body pre,
+  html body .highlight {
+    margin-bottom: 10px;
+  }
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+  html body {
+    padding: 12px;
+    background-size: 15px 15px;
+    line-height: 1.35;
+  }
+  
+  html body h1 {
+    font-size: 1.8em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h2 {
+    font-size: 1.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h3 {
+    font-size: 1.3em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  
+  /* 移动设备上缩进稍小 */
+  html body blockquote {
+    padding-left: 20px;
+    margin: 6px 0;
+  }
+  
+  html body blockquote::before {
+    left: 12px;
+  }
+  
+  html body blockquote blockquote {
+    padding-left: 36px;
+  }
+  
+  html body blockquote blockquote::before {
+    left: 28px;
+  }
+  
+  html body blockquote blockquote blockquote {
+    padding-left: 52px;
+  }
+  
+  html body blockquote blockquote blockquote::before {
+    left: 44px;
+  }
+  
+  /* 移动设备上列表缩进稍小 */
+  html body ol, 
+  html body ul {
+    padding-left: 1.5em;
+  }
+  
+  /* 移动设备上表格内边距更小 */
+  html body table td,
+  html body table th {
+    padding: 3px 6px;
+  }
+  
+  /* 移动设备上公式进一步调小 */
+  .katex,
+  .math,
+  .katex-display,
+  .mjx-chtml,
+  .mjx-math {
+    font-size: 0.85em !important;
+  }
+  
+  /* 移动设备上间距进一步减小 */
+  html body > p,
+  html body > ol,
+  html body > ul,
+  html body blockquote,
+  html body dl,
+  html body pre,
+  html body .highlight {
+    margin-bottom: 10px;
+  }
+}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h3 id="极限运算法则">极限运算法则 </h3>
+<h4 id="一四则运算">一.四则运算 </h4>
+<blockquote>
+<p>如果在同一变化过程中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><mi>lim</mi><mo>⁡</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>A</mi><mo separator="true">,</mo><mi>lim</mi><mo>⁡</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim f(x) = A , \lim g(x) = B }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="color:Red;">A</span><span class="mpunct" style="color:Red;">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;color:Red;">B</span></span></span></span></span> (即<strong>两个极限都存在</strong>),有：</p>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th><strong>和：</strong></th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><mi>lim</mi><mo>⁡</mo><mo stretchy="false">[</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>±</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>=</mo><mi>lim</mi><mo>⁡</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>±</mo><mi>lim</mi><mo>⁡</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>A</mi><mo>±</mo><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim [f(x) \pm g(x)] = \lim f(x) \pm \lim g(x) = A \pm B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mopen" style="color:Red;">[</span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="color:Red;">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;color:Red;">B</span></span></span></span></span>(可以推广到<strong>有限多</strong>的情形)</th>
+</tr>
+</thead>
+</table>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><em>证明：</em> 暂略</p>
+</blockquote>
+<ul>
+<li>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th><strong>推论：</strong></th>
+<th><strong>极限运算的线性性质</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><mi>lim</mi><mo>⁡</mo><mo stretchy="false">[</mo><mi>λ</mi><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>±</mo><mi>μ</mi><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>=</mo><mi>λ</mi><mi>lim</mi><mo>⁡</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>±</mo><mi>μ</mi><mi>lim</mi><mo>⁡</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>λ</mi><mi>A</mi><mo>±</mo><mi>μ</mi><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim[\lambda f(x) \pm \mu g(x)] = \lambda\lim f(x) \pm \mu\lim g(x) = \lambda A \pm \mu B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mopen" style="color:Red;">[</span><span class="mord mathnormal" style="color:Red;">λ</span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">μg</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="color:Red;">λ</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="color:Red;">μ</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="color:Red;">λ</span><span class="mord mathnormal" style="color:Red;">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">±</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="color:Red;">μ</span><span class="mord mathnormal" style="margin-right:0.05017em;color:Red;">B</span></span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th><strong>积：</strong></th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><mi>lim</mi><mo>⁡</mo><mo stretchy="false">[</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>=</mo><mi>lim</mi><mo>⁡</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>lim</mi><mo>⁡</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>A</mi><mo>⋅</mo><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim [f(x) \cdot g(x)] = \lim f(x) \cdot \lim g(x) = A \cdot B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mopen" style="color:Red;">[</span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="color:Red;">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin" style="color:Red;">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;color:Red;">B</span></span></span></span></span>(可以推广到<strong>有限多</strong>的情形)</th>
+</tr>
+</thead>
+</table>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><em>证明：</em> 暂略</p>
+</blockquote>
+<ul>
+<li><strong>商：若</strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{red}B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;color:red;">B</span></span></span></span></span> <strong>≠</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>0</mn></mstyle></mrow><annotation encoding="application/x-tex">{\color{red}0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord" style="color:red;">0</span></span></span></span></span>,则有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><mi>lim</mi><mo>⁡</mo><mfrac><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mrow><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>lim</mi><mo>⁡</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mrow><mi>lim</mi><mo>⁡</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>A</mi><mi>B</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)} = \frac{A}{B}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.53em;vertical-align:-0.52em;"></span><span class="mord"><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord" style="color:Red;"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen mtight" style="color:Red;">(</span><span class="mord mathnormal mtight" style="color:Red;">x</span><span class="mclose mtight" style="color:Red;">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="color:Red;border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen mtight" style="color:Red;">(</span><span class="mord mathnormal mtight" style="color:Red;">x</span><span class="mclose mtight" style="color:Red;">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord" style="color:Red;"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mop mtight" style="color:Red;"><span class="mtight" style="color:Red;">l</span><span class="mtight" style="color:Red;">i</span><span class="mtight" style="color:Red;">m</span></span><span class="mspace mtight" style="color:Red;margin-right:0.1952em;"></span><span class="mord mathnormal mtight" style="margin-right:0.03588em;color:Red;">g</span><span class="mopen mtight" style="color:Red;">(</span><span class="mord mathnormal mtight" style="color:Red;">x</span><span class="mclose mtight" style="color:Red;">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="color:Red;border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mop mtight" style="color:Red;"><span class="mtight" style="color:Red;">l</span><span class="mtight" style="color:Red;">i</span><span class="mtight" style="color:Red;">m</span></span><span class="mspace mtight" style="color:Red;margin-right:0.1952em;"></span><span class="mord mathnormal mtight" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen mtight" style="color:Red;">(</span><span class="mord mathnormal mtight" style="color:Red;">x</span><span class="mclose mtight" style="color:Red;">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord" style="color:Red;"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="margin-right:0.05017em;color:Red;">B</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="color:Red;border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></li>
+</ul>
+<blockquote>
+<p><em>证明：</em> 暂略</p>
+</blockquote>
+</blockquote>
+<h4 id="二复合函数的极限运算法则">二.复合函数的极限运算法则 </h4>
+<blockquote></blockquote>
+<h3 id="定积分">定积分 </h3>
+<h3 id="无穷区间上的反常积分">无穷区间上的反常积分 </h3>
+<h3 id="多元函数">多元函数 </h3>
+<h3 id="偏导数">偏导数 </h3>
+<p>carry out<br>
+hold back<br>
+be able to<br>
+pricy<br>
+Wow,collage alredy.</p>
+<h3 id="一阶微分方程">一阶微分方程 </h3>
+<table>
+<thead>
+<tr>
+<th><strong>定义</strong></th>
+<th>设函数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 在区间 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mo>+</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[a, +\infty)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord">∞</span><span class="mclose">)</span></span></span></span> 上连续，取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&gt;</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">b&gt;a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>，</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>若极限 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>b</mi><mo>→</mo><mo>+</mo><mi mathvariant="normal">∞</mi></mrow></munder><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi mathvariant="normal">d</mi><mi>x</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\lim\limits_{b \to +\infty} \int_{a}^{b} f(x)\mathrm{d}x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.8544em;vertical-align:-0.8104em;"></span><span class="mord"><span class="mop op-limits" style="color:Red;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.3479em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">b</span><span class="mrel mtight" style="color:Red;">→</span><span class="mord mtight" style="color:Red;">+</span><span class="mord mtight" style="color:Red;">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8104em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop" style="color:Red;"><span class="mop op-symbol small-op" style="margin-right:0.19445em;color:Red;position:relative;top:-0.0006em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.044em;"><span style="top:-2.3442em;margin-left:-0.1945em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">a</span></span></span></span><span style="top:-3.2579em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3558em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mord mathrm" style="color:Red;">d</span><span class="mord mathnormal" style="color:Red;">x</span></span></span></span></span> 存在，<br></td>
+</tr>
+<tr>
+<td></td>
+<td>则称该极限为函数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mo>+</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[a, +\infty)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord">∞</span><span class="mclose">)</span></span></span></span>上的<strong>广义积分</strong>，<br></td>
+</tr>
+<tr>
+<td></td>
+<td>并记作 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Red"><msubsup><mo>∫</mo><mi>a</mi><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>b</mi><mo>→</mo><mo>+</mo><mi mathvariant="normal">∞</mi></mrow></munder><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi mathvariant="normal">d</mi><mi>x</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{Red}\int_{a}^{+\infty} f(x) , \mathrm{d}x = \lim\limits_{b \to +\infty} \int_{a}^{b} f(x)\mathrm{d}x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.8544em;vertical-align:-0.8104em;"></span><span class="mord"><span class="mop" style="color:Red;"><span class="mop op-symbol small-op" style="margin-right:0.19445em;color:Red;position:relative;top:-0.0006em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9662em;"><span style="top:-2.3442em;margin-left:-0.1945em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">a</span></span></span></span><span style="top:-3.2579em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mtight" style="color:Red;">+</span><span class="mord mtight" style="color:Red;">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3558em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mpunct" style="color:Red;">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm" style="color:Red;">d</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel" style="color:Red;">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mop op-limits" style="color:Red;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.3479em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">b</span><span class="mrel mtight" style="color:Red;">→</span><span class="mord mtight" style="color:Red;">+</span><span class="mord mtight" style="color:Red;">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop" style="color:Red;"><span style="color:Red;">l</span><span style="color:Red;">i</span><span style="color:Red;">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8104em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop" style="color:Red;"><span class="mop op-symbol small-op" style="margin-right:0.19445em;color:Red;position:relative;top:-0.0006em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.044em;"><span style="top:-2.3442em;margin-left:-0.1945em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">a</span></span></span></span><span style="top:-3.2579em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight" style="color:Red;"><span class="mord mtight" style="color:Red;"><span class="mord mathnormal mtight" style="color:Red;">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3558em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;color:Red;">f</span><span class="mopen" style="color:Red;">(</span><span class="mord mathnormal" style="color:Red;">x</span><span class="mclose" style="color:Red;">)</span><span class="mord mathrm" style="color:Red;">d</span><span class="mord mathnormal" style="color:Red;">x</span></span></span></span></span></td>
+</tr>
+<tr>
+<td></td>
+<td>当极限存在时,称广义积分<strong>收敛</strong>;当极限不存在时,称广义积分<strong>发散</strong>.</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
