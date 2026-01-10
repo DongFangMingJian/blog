@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>no title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW9.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/sourcesanspro/v23/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/sourcesanspro/v23/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/sourcesanspro/v23/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}.markdown-preview code{border-radius:2px;color:#e96900;font-size:12.8px;font-size:.8rem;margin:0 2px;padding:3px 5px;white-space:pre-wrap}.markdown-preview code,.markdown-preview pre{background-color:#f8f8f8;font-family:Roboto Mono,Monaco,courier,monospace}.markdown-preview pre{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;line-height:24px;line-height:1.5rem;margin:1.2em 0;overflow:auto;padding:0 22.4px;padding:0 1.4rem;position:relative;word-wrap:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8e908c}.token.namespace{opacity:.7}.token.boolean,.token.number{color:#c76b29}.token.punctuation{color:#525252}.token.property{color:#c08b30}.token.tag{color:#2973b7}.token.string{color:#42b983;color:var(--theme-color,#42b983)}.token.selector{color:#6679cc}.token.attr-name{color:#2973b7}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#22a2c9}.token.attr-value,.token.control,.token.directive,.token.unit{color:#42b983;color:var(--theme-color,#42b983)}.token.keyword{color:#e96900}.token.atrule,.token.regex,.token.statement{color:#22a2c9}.token.placeholder,.token.variable{color:#3d8fd1}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #202746;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c94922}.token.entity{cursor:help}.markdown-preview pre>code,.markdown-preview pre[class*=language]{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;background-color:#f8f8f8;border-radius:2px;color:#525252;display:block;font-family:Roboto Mono,Monaco,courier,monospace;font-size:12.8px;font-size:.8rem;line-height:2em;max-width:inherit;overflow:inherit;padding:.8em 1.4em;white-space:pre}.markdown-preview pre>code{padding-left:0;padding-right:0}.markdown-preview code:after,.markdown-preview code:before{letter-spacing:.8px;letter-spacing:.05rem}code .token{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;min-height:24px;min-height:1.5rem}pre:after{color:#ccc;content:attr(data-lang);font-size:9.6px;font-size:.6rem;font-weight:600;height:15px;line-height:15px;padding:5px 10px 0;position:absolute;right:0;text-align:right;top:0}pre[data-line]{position:relative;padding:1em 0 1em 3em!important}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}.emoji{height:.8em}/* 英语笔记本主题CSS - 专为英语学习设计（衡水体+宋体）- 表格第一列优化版 */
+:root {
+  --paper-color: #f8f4e8;
+  --grid-color: rgba(210, 180, 140, 0.1);
+  --text-color: #333;
+  --emphasis-color: #c00;
+  --italic-color: #0066cc;
+  --link-color: #0066cc;
+  --link-hover: #0088ff;
+  --code-bg: #f5f5f5;
+  --border-color: #d6c7a8;
+  --table-first-col-width: 180px; /* 第一列默认宽度，可根据需要调整 */
+}
+
+/* 使用@font-face引入本地衡水体字体 - 确保URL正确 */
+@font-face {
+  font-family: 'HengshuiHandwriting';
+  src: url('./舒窈英文衡水体.ttf') format('truetype'),
+       url('舒窈英文衡水体.ttf') format('truetype'),
+       url('fonts/舒窈英文衡水体.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 先测试一下字体是否能加载 */
+html body {
+  /* 英文使用衡水体，中文使用宋体，实现混合字体渲染 */
+  font-family: 
+    'HengshuiHandwriting',
+    'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive, /* 备用字体 */
+    'SimSun', '宋体', 'STSong',
+    serif;
+  font-size: 19px;
+  line-height: 2.6 !important; /* 添加!important确保生效 */
+  color: var(--text-color);
+  background-color: var(--paper-color);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 30px;
+  overflow: initial;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  /* 强制打印时保留颜色和背景 */
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+  /* 确保文本渲染质量 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 标题样式 - 英文使用衡水体，中文使用宋体 */
+html body h1, 
+html body h2, 
+html body h3 {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 2.2em;
+  margin-bottom: 1.2em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  line-height: 1.4 !important;
+  font-family: 
+    'HengshuiHandwriting',
+    'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+    'SimSun', '宋体', 'STSong',
+    serif !important; /* 添加!important */
+}
+
+html body h1 {
+  font-size: 2.8em;
+  border-bottom: none !important;
+}
+
+html body h2 {
+  font-size: 2.3em;
+  border-bottom: none !important;
+}
+
+html body h3 {
+  font-size: 1.9em;
+  border-bottom: none !important;
+}
+
+html body h4, 
+html body h5, 
+html body h6 {
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #222;
+  border: none !important;
+  padding-bottom: 0 !important;
+  text-align: left;
+  line-height: 1.5 !important;
+  font-family: 
+    'HengshuiHandwriting',
+    'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+    'SimSun', '宋体', 'STSong',
+    serif !important;
+}
+
+html body h4 {
+  font-size: 1.6em;
+}
+
+html body h5 {
+  font-size: 1.4em;
+}
+
+html body h6 {
+  font-size: 1.2em;
+  color: #444;
+}
+
+/* 强调样式 - 加粗红色 */
+html body strong {
+  color: var(--emphasis-color);
+  font-weight: 700;
+}
+
+/* 斜体样式 - 不斜体、加粗、正蓝色 */
+html body em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--italic-color);
+}
+
+/* 链接样式 */
+html body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+html body a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-color);
+  padding-bottom: 1px;
+}
+
+html body a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
+
+/* 图片 */
+html body img {
+  max-width: 100%;
+  display: block;
+  margin: 2em auto;
+  border-radius: 5px;
+}
+
+/* 段落 - 使用宽行距 */
+html body > p {
+  margin-top: 0;
+  margin-bottom: 2em;
+  word-wrap: break-word;
+  line-height: 2.6 !important; /* 添加!important */
+}
+
+/* ========================== */
+/* 1. 代码块 - 清空样式，英文用Times New Roman，正体 */
+/* ========================== */
+
+/* 行内代码 - 清空样式，使用Times New Roman */
+html body code {
+  font-family: 'Times New Roman', 'Times', serif !important;
+  font-size: 0.95em !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  font-style: normal !important;
+}
+
+html body code::after, 
+html body code::before {
+  content: normal !important;
+}
+
+/* 代码块 - 清空样式，英文用Times New Roman */
+html body pre > code {
+  padding: 0 !important;
+  margin: 0 !important;
+  word-break: normal;
+  white-space: pre;
+  background: transparent !important;
+  border: 0 !important;
+  line-height: inherit !important;
+}
+
+html body .highlight {
+  margin-bottom: 1.5em !important;
+}
+
+html body .highlight pre, 
+html body pre {
+  padding: 0.8em 1em !important;
+  overflow: auto;
+  line-height: 1.4 !important; /* 调整为正常观感 */
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-size: 0.95em !important;
+  font-family: 'Times New Roman', 'Times', serif !important;
+  margin: 1.2em 0 !important; /* 调整与其他内容的间距 */
+}
+
+html body .highlight pre {
+  margin-bottom: 0 !important;
+  word-break: normal;
+}
+
+html body pre code, 
+html body pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0 !important;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent !important;
+  border: 0 !important;
+  font-style: normal !important;
+}
+
+html body pre code:after, 
+html body pre code:before, 
+html body pre tt:after, 
+html body pre tt:before {
+  content: normal;
+}
+
+/* ========================== */
+/* 2. 引用块 - 调整行间距和间距 */
+/* ========================== */
+html body blockquote {
+  margin: 1.2em 0 !important; /* 调整与其他内容的间距 */
+  font-size: inherit;
+  padding: 0 0 0 3em;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-left: none;
+  font-family: inherit;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+  position: relative;
+}
+
+/* 可选：添加一个非常淡的左侧竖线作为缩进指示 */
+html body blockquote::before {
+  content: '';
+  position: absolute;
+  left: 1.5em;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+/* 可选：给blockquote内部的第一个和最后一个元素微调间距 */
+html body blockquote > :first-child {
+  margin-top: 0;
+}
+
+html body blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* ========================== */
+/* 3. 表格 - 取消所有样式，内容左对齐，调整间距，第一列不换行 */
+/* ========================== */
+html body table {
+  margin: 1.2em 0 !important; /* 调整与其他内容的间距 */
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table; /* 改为table布局以支持列宽 */
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  border: none !important; /* 取消边框 */
+  font-size: 1em;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+  background-color: transparent !important; /* 取消背景 */
+  table-layout: auto; /* 自动布局，第一列根据内容调整 */
+}
+
+/* 表头 - 取消所有样式 */
+html body table th {
+  font-weight: normal !important; /* 正常字重 */
+  color: inherit !important; /* 继承颜色 */
+  background-color: transparent !important; /* 取消背景 */
+  border: none !important; /* 取消边框 */
+  font-family: inherit; /* 继承字体 */
+  text-align: left !important; /* 左对齐 */
+  padding: 4px 8px !important; /* 减小内边距，避免间隔过大 */
+}
+
+/* 表格单元格和表头 */
+html body table td, 
+html body table th {
+  border: none !important; /* 取消边框 */
+  padding: 4px 8px !important; /* 减小内边距，避免间隔过大 */
+  vertical-align: top; /* 顶部对齐 */
+  font-family: inherit; /* 继承字体 */
+  font-size: 1em; /* 正常字体大小 */
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+  color: inherit; /* 继承正文颜色 */
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* 表格第一列 - 不换行，根据内容自适应宽度 */
+html body table td:first-child,
+html body table th:first-child {
+  white-space: nowrap !important; /* 强制不换行 */
+  width: auto !important; /* 自动宽度 */
+  min-width: 0; /* 最小宽度为0，让内容决定宽度 */
+}
+
+/* 可选：如果您需要指定第一列宽度，取消下面的注释并调整宽度值 */
+/*
+html body table td:first-child,
+html body table th:first-child {
+  width: var(--table-first-col-width) !important; 
+  min-width: var(--table-first-col-width) !important;
+  max-width: var(--table-first-col-width) !important;
+}
+*/
+
+/* 取消所有表格背景色 */
+html body table tr:nth-child(even) {
+  background-color: transparent !important;
+}
+
+html body table thead tr {
+  background-color: transparent !important;
+}
+
+/* ========================== */
+/* 4. 无序列表 - 调整行间距和间距 */
+/* ========================== */
+
+/* 列表 - 调整间距和行高 */
+html body > ol, 
+html body > ul {
+  margin-bottom: 1.2em !important; /* 调整与其他内容的间距 */
+  margin-top: 0;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+}
+
+/* 有序列表 - 保持数字标记 */
+html body ol {
+  padding-left: 3em;
+  list-style-type: decimal;
+}
+
+/* 无序列表 - 使用小圆点且较小 */
+html body ul {
+  padding-left: 3em;
+  list-style-type: disc;
+}
+
+/* 无序列表小圆点调小 */
+html body ul li::marker {
+  font-size: 0.7em;
+  color: #666;
+}
+
+/* 二级无序列表 - 使用空心圆点 */
+html body ul ul {
+  list-style-type: circle;
+}
+
+/* 三级无序列表 - 使用实心方块 */
+html body ul ul ul {
+  list-style-type: square;
+}
+
+/* 去除.no-list的列表标记 */
+html body ol.no-list, 
+html body ul.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* 嵌套列表间距调整 */
+html body ol ol, 
+html body ol ul, 
+html body ul ol, 
+html body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 列表项 - 调整行高和间距 */
+html body li {
+  margin-bottom: 0;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+  padding-top: 0 !important; /* 去除额外的内边距 */
+  padding-bottom: 0 !important; /* 去除额外的内边距 */
+}
+
+/* 任务列表项 */
+html body li.task-list-item {
+  list-style: none;
+}
+
+/* 列表项内的段落 */
+html body li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+}
+
+/* ========================== */
+/* 5. 它们之间的间距也应当调整至合适，强调不能大 */
+/* ========================== */
+
+/* 水平线 - 调整间距 */
+html body hr {
+  height: 2px;
+  margin: 1.8em 0 !important; /* 调整为合适的间距 */
+  background-color: var(--border-color);
+  border: 0 none;
+}
+
+/* 定义列表 - 调整间距 */
+html body dl {
+  padding: 0;
+}
+
+html body dl dt {
+  padding: 0;
+  margin-top: 1.2em !important; /* 调整为合适的间距 */
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+  color: var(--emphasis-color);
+}
+
+html body dl dd {
+  padding: 0 1.5em;
+  margin-bottom: 1.2em !important; /* 调整为合适的间距 */
+  line-height: 1.4 !important; /* 调整为1.4倍行高 */
+}
+
+/* 键盘按键样式 */
+html body kbd {
+  color: #000;
+  border: 1px solid var(--border-color);
+  border-bottom: 2px solid #c7c7c7;
+  padding: 3px 6px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* 数学公式相关 */
+.katex, 
+.math {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9em !important;
+}
+
+.katex-display {
+  font-size: 0.9em !important;
+  margin: 2em 0 !important;
+}
+
+.equation {
+  text-align: center;
+  margin: 2em 0;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
+/* 英语学习特定样式 */
+.vocabulary {
+  background-color: rgba(255, 255, 230, 0.8);
+  padding: 1.2em;
+  border-left: 3px solid #ffcc00;
+  margin: 1.2em 0;
+  line-height: 2.0 !important;
+}
+
+.pronunciation {
+  font-family: 
+    'HengshuiHandwriting',
+    'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+    'SimSun', '宋体', 'STSong',
+    serif !important;
+  color: #666;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.definition {
+  margin-left: 2em;
+  padding-left: 1.5em;
+  border-left: 2px solid #e0e0e0;
+  line-height: 2.0 !important;
+}
+
+.example {
+  background-color: rgba(240, 248, 255, 0.8);
+  padding: 1.2em;
+  margin: 1.2em 0;
+  border-radius: 3px;
+  line-height: 2.0 !important;
+}
+
+/* 任务列表复选框 */
+html body .task-list-item-checkbox {
+  margin: 0 .3em .3em -2.2em;
+  vertical-align: middle;
+  transform: scale(1.3);
+}
+
+html body .task-list-item-checkbox:hover {
+  cursor: pointer;
+}
+
+/* 自定义缩进级别 */
+html body blockquote blockquote {
+  padding-left: 6em;
+  margin: 1.2em 0 !important; /* 调整间距 */
+}
+
+html body blockquote blockquote::before {
+  left: 4.5em;
+}
+
+html body blockquote blockquote blockquote {
+  padding-left: 9em;
+  margin: 1.2em 0 !important; /* 调整间距 */
+}
+
+html body blockquote blockquote blockquote::before {
+  left: 7.5em;
+}
+
+/* ========================== */
+/* 打印样式 - 保持完全一致，只调整行高和间距 */
+/* ========================== */
+@media print {
+  html body {
+    background-color: var(--paper-color) !important;
+    background-image: 
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    padding: 30px !important;
+    box-shadow: none !important;
+    line-height: 2.6 !important; /* 保持正文行距 */
+    max-width: 1000px !important;
+    font-size: 19px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    /* 打印时也指定字体 */
+    font-family: 
+      'HengshuiHandwriting',
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+  }
+  
+  html body h1, 
+  html body h2, 
+  html body h3, 
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    color: #222 !important;
+    page-break-after: avoid;
+    margin-top: 2.2em !important;
+    margin-bottom: 1.2em !important;
+    /* 打印时也指定标题字体 */
+    font-family: 
+      'HengshuiHandwriting',
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* 打印时代码块样式 */
+  html body code {
+    font-family: 'Times New Roman', 'Times', serif !important;
+    font-size: 0.95em !important;
+    color: inherit !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    line-height: inherit !important;
+    font-style: normal !important;
+  }
+  
+  html body pre {
+    padding: 0.8em 1em !important;
+    line-height: 1.4 !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 0.95em !important;
+    font-family: 'Times New Roman', 'Times', serif !important;
+    margin: 1.2em 0 !important;
+  }
+  
+  /* 打印时引用块样式 */
+  html body blockquote {
+    background-color: transparent !important;
+    border: none !important;
+    padding-left: 3em !important;
+    margin: 1.2em 0 !important;
+    line-height: 1.4 !important;
+  }
+  
+  html body blockquote::before {
+    display: none !important;
+  }
+  
+  /* 打印时表格样式 */
+  html body table {
+    display: table !important;
+    font-size: 1em !important;
+    border: none !important;
+    background-color: transparent !important;
+    margin: 1.2em 0 !important;
+    line-height: 1.4 !important;
+    table-layout: auto !important;
+  }
+  
+  /* 打印时表格第一列不换行 */
+  html body table td:first-child,
+  html body table th:first-child {
+    white-space: nowrap !important;
+    width: auto !important;
+  }
+  
+  html body table th {
+    background-color: transparent !important;
+    color: inherit !important;
+    font-weight: normal !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    text-align: left !important;
+  }
+  
+  html body table td,
+  html body table th {
+    border: none !important;
+    padding: 4px 8px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* 打印时列表样式 */
+  html body > ol,
+  html body > ul {
+    margin-bottom: 1.2em !important;
+    line-height: 1.4 !important;
+  }
+  
+  html body li {
+    line-height: 1.4 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  html body li > p {
+    line-height: 1.4 !important;
+  }
+  
+  /* 打印时其他间距调整 */
+  html body dl dt {
+    margin-top: 1.2em !important;
+    line-height: 1.4 !important;
+  }
+  
+  html body dl dd {
+    margin-bottom: 1.2em !important;
+    line-height: 1.4 !important;
+  }
+  
+  html body hr {
+    margin: 1.8em 0 !important;
+  }
+  
+  /* 打印时保持强调和斜体颜色 */
+  html body strong {
+    color: var(--emphasis-color) !important;
+    font-weight: 700 !important;
+  }
+  
+  html body em {
+    color: var(--italic-color) !important;
+    font-weight: 700 !important;
+  }
+  
+  .katex,
+  .math,
+  .katex-display {
+    font-size: 0.9em !important;
+  }
+  
+  html body img {
+    display: block !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 2em auto !important;
+    border-radius: 5px !important;
+  }
+  
+  /* 打印时保持链接颜色 */
+  html body a {
+    color: var(--link-color) !important;
+  }
+  
+  /* 打印时保持英语学习特定样式 */
+  .vocabulary {
+    background-color: rgba(255, 255, 230, 0.8) !important;
+    border-left: 3px solid #ffcc00 !important;
+    line-height: 2.0 !important;
+    margin: 1.2em 0 !important;
+  }
+  
+  .pronunciation {
+    font-family: 
+      'HengshuiHandwriting',
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+  }
+  
+  .definition {
+    border-left: 2px solid #e0e0e0 !important;
+    line-height: 2.0 !important;
+    margin: 1.2em 0 !important;
+  }
+  
+  .example {
+    background-color: rgba(240, 248, 255, 0.8) !important;
+    line-height: 2.0 !important;
+    margin: 1.2em 0 !important;
+  }
+  
+  /* 打印时所有间距保持 */
+  html body > p {
+    margin-bottom: 2em !important;
+    line-height: 2.6 !important;
+  }
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+  html body {
+    padding: 20px;
+    background-size: 15px 15px;
+    line-height: 2.4 !important;
+    font-size: 18px;
+  }
+  
+  html body h1 {
+    font-size: 2.2em;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+  }
+  
+  html body h2 {
+    font-size: 1.9em;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+  }
+  
+  html body h3 {
+    font-size: 1.6em;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+  }
+  
+  html body h4, 
+  html body h5, 
+html body h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+  }
+  
+  html body blockquote {
+    padding-left: 2.5em;
+    margin: 1.2em 0 !important;
+  }
+  
+  html body blockquote::before {
+    left: 1.2em;
+  }
+  
+  html body blockquote blockquote {
+    padding-left: 5em;
+    margin: 1.2em 0 !important;
+  }
+  
+  html body blockquote blockquote::before {
+    left: 3.7em;
+  }
+  
+  html body blockquote blockquote blockquote {
+    padding-left: 7.5em;
+    margin: 1.2em 0 !important;
+  }
+  
+  html body blockquote blockquote blockquote::before {
+    left: 6.2em;
+  }
+  
+  html body ol, 
+  html body ul {
+    padding-left: 2.5em;
+  }
+  
+  /* 移动设备上表格可能需要特别处理 */
+  html body table {
+    display: block !important; /* 移动设备上改为块级显示 */
+    overflow-x: auto !important; /* 允许水平滚动 */
+  }
+  
+  /* 移动设备上表格第一列仍然不换行 */
+  html body table td:first-child,
+  html body table th:first-child {
+    white-space: nowrap !important;
+  }
+  
+  .katex,
+  .math,
+  .katex-display {
+    font-size: 0.85em !important;
+  }
+  
+  html body > p {
+    margin-bottom: 1.8em;
+  }
+}
+
+/* 字体加载测试类 - 如果字体加载失败会显示 */
+.font-test {
+  font-family: 'HengshuiHandwriting', sans-serif;
+  visibility: hidden;
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* 如果衡水体字体加载失败，使用备用字体 */
+@supports not (font-family: 'HengshuiHandwriting') {
+  html body {
+    font-family: 
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+  }
+  
+  html body h1, 
+  html body h2, 
+  html body h3,
+  html body h4, 
+  html body h5, 
+  html body h6 {
+    font-family: 
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+  }
+  
+  .pronunciation {
+    font-family: 
+      'Comic Sans MS', 'Segoe Print', 'Brush Script MT', cursive,
+      'SimSun', '宋体', 'STSong',
+      serif !important;
+  }
+}
+    /* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+    </style>
+    
+    <!-- The content below will be included at the end of the <head> element. --><html><head><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body></body></html>
+  </head>
+  <body for="html-export">
+    <div class="crossnote markdown-preview">
+    <html><head></head><body><div>
+<h5 id="回流">回流 </h5>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549035&amp;replay=true">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549035&amp;replay=true</a><br>
+<strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取圆底烧瓶，用水替代反应物，<em>加水不要超过容积的三分之二，不少于三分之一</em>，<strong>加沸石</strong><br>
+2.从下往上搭建装置，<em>用铁夹固定圆底烧瓶磨口部位</em>，<em>电热套要与台面平行</em>，选用<em>球形冷凝管</em>，冷凝管上端<strong>不加塞</strong>，乳胶管管口抹点水更容易套上去，过两个节，<em>固定一定要紧</em>不要脱落<br>
+3.<em>先开冷凝水</em>，细水长流，<em>下进上出</em><br>
+4.<em>再打开电热套</em>，举手示意<br>
+5.<em>先关电热套电源，再关冷却水</em><br>
+6.从上往下拆除装置<br>
+7.<em>沸石回收</em>，收拾台面<br>
+<img src="https://dongfangmingjian.github.io/blog/回流装置.jpg" style="width: 30%;" alt="图片描述"></p>
+</blockquote>
+<h5 id="普通蒸馏">普通蒸馏 </h5>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549034&amp;contentid=1219026863">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549034&amp;contentid=1219026863</a><br>
+<strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取圆底烧瓶，用水替代反应物，<em>加水不要超过容积的三分之二，不少于三分之一</em>，<strong>加沸石</strong><br>
+2.装蒸馏头，水银球在支管口处，测蒸汽温度<br>
+3.在<em>直形冷凝管</em>中间用铁夹固定*，然后对接<br>
+4.装尾接管，用<em>卡扣固定</em>，并确保装置都<em>在同一平面</em><br>
+5.用三角烧瓶收集，高度不够用<em>升降台</em><br>
+6.乳胶管管口抹点水更容易套上去，过两个节，<em>固定一定要紧</em>不要脱落，<em>下进上出</em><br>
+7.<em>先开冷凝水</em>，细水长流<br>
+8.<em>再打开电热套</em>，举手示意<br>
+9.<em>先关电热套电源，再关冷却水</em><br>
+10.三角烧瓶<em>塞上塞子</em><br>
+11.<em>从上往下，从右往左</em>拆除装置<br>
+12.<em>沸石回收</em>，收拾台面<br>
+<img src="https://dongfangmingjian.github.io/blog/蒸馏装置.png" style="width: 70%;" alt="图片描述"></p>
+</blockquote>
+<h5 id="水蒸气蒸馏">水蒸气蒸馏 </h5>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883523&amp;cid=1304549061&amp;contentid=1219028818">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883523&amp;cid=1304549061&amp;contentid=1219028818</a><br>
+<strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取<em>两口烧瓶</em>，从侧口加入两粒沸石<br>
+2.固定烧瓶颈部磨口处<br>
+3.安装蒸馏试管<br>
+4.连接T形管和导管，将T形管置于蒸馏试管，并将导管置于两口烧瓶侧口处<br>
+5.止水夹夹于T型管的玻璃管上<br>
+6.连接<em>直形冷凝管</em>中间用铁夹固定<br>
+7.装尾接管，用<em>卡扣固定</em>，并确保装置都<em>在同一平面</em><br>
+8.用三角烧瓶收集，高度不够用<em>升降台</em><br>
+9.取下T形管，从两口烧瓶侧口加入蒸馏水多于三分之一少于二分之一<br>
+10.将蒸馏液（水）通过长颈漏斗加入蒸馏试管中不超过三分之一<br>
+11.重新连接T形管和导管<br>
+12.<em>先开冷凝水</em>，细水长流，<em>下进上出</em><br>
+13.<em>再打开电热套</em><br>
+14.待胶管中水蒸气稳定流出后，用止水夹夹住胶皮管<br>
+15.举手示意<br>
+16.<strong>先打开止水夹</strong>，防倒吸<br>
+17.<em>关电热套电源，最后关冷却水</em><br>
+18.三角烧瓶<em>塞上塞子</em><br>
+19.<em>从上往下，从右往左</em>拆除装置<br>
+20.<em>沸石回收</em>，收拾台面<br>
+<img src="https://dongfangmingjian.github.io/blog/水蒸气蒸馏装置.png" style="width: 70%;" alt="图片描述"><br>
+<strong>适用水蒸气蒸馏</strong><br>
+1.不溶或难溶于水<br>
+2.沸腾时不遇水反应<br>
+3.在100℃时有一定的蒸汽压</p>
+</blockquote>
+<h5 id="减压抽滤">减压抽滤 </h5>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883515&amp;sm=1">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883515&amp;sm=1</a><br>
+15.05<br>
+<strong>实验步骤</strong></p>
+<blockquote>
+<p>1.剪六片<strong>双层滤纸</strong>，大小和布氏漏斗一致<br>
+2.铺滤纸，组装抽滤瓶,<em>斜口正对抽滤瓶支管口</em><br>
+3.先确保安全瓶与大气相通<br>
+4.打开水泵<br>
+5.把真空管接到抽滤瓶支管上面<br>
+6.加一点水润湿滤纸<br>
+7.关闭安全瓶活塞<br>
+8.加入混合相<br>
+9.先打开安全瓶的活塞<br>
+10.拔除抽滤瓶支管的真空管<br>
+11.倒掉抽滤瓶中的水<br>
+12.再把真空管接到抽滤瓶支管上面，加一滴水润下布氏漏斗里的固体<br>
+13.关闭安全瓶活塞<br>
+14.加水再次抽滤<br>
+15.抽滤完毕，先打开安全瓶的活塞，再拔除抽滤瓶支管的真空管，最后关掉水泵电源<br>
+16.将布氏漏斗里的固体转移到烧杯中<br>
+17.取热水倒入产品烧杯，搅拌溶解<br>
+18.<em>在稍冷情况下加入极少量活性炭</em><br>
+19.铺滤纸，组装抽滤瓶,<em>斜口正对抽滤瓶支管口</em><br>
+20.先确保安全瓶与大气相通<br>
+21.打开水泵<br>
+22.把真空管接到抽滤瓶支管上面<br>
+23.加一点水润湿滤纸<br>
+24.关闭安全瓶活塞<br>
+25.加入混合相<br>
+26.把热的溶液倒入布氏漏斗抽滤，产物位于抽滤瓶中<br>
+27.抽滤完毕，先打开安全瓶的活塞，再拔除抽滤瓶支管的真空管，最后关掉水泵电源<br>
+28.母液冷却<br>
+29.铺滤纸，组装抽滤瓶,<em>斜口正对抽滤瓶支管口</em><br>
+30.先确保安全瓶与大气相通<br>
+31.打开水泵<br>
+32.把真空管接到抽滤瓶支管上面<br>
+33.加一点水润湿滤纸<br>
+34.关闭安全瓶活塞<br>
+35.加入冷却的母液，产物在布氏漏斗中<br>
+36.抽滤完毕，先打开安全瓶的活塞，再拔除抽滤瓶支管的真空管，最后关掉水泵电源<br>
+37.转移产品</p>
+</blockquote>
+<img src="https://dongfangmingjian.github.io/blog/减压抽滤流程.png" style="width: 100%;" alt="图片描述">
+<img src="https://dongfangmingjian.github.io/blog/减压抽滤装置.png" style="width: 70%;" alt="图片描述">
+<h5 id="柱色谱">柱色谱 </h5>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883517&amp;sm=1">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883517&amp;sm=1</a><br>
+<strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取层析柱，加入少量水先捡漏，如果漏涂抹凡士林，再固定<br>
+2.取不大不小的脱脂棉，用玻棒推到层析柱底部压实<br>
+3.取纤维素粉，加无水乙醇浸润<br>
+4.在层析柱下方放烧杯，<strong>关闭层析柱活塞</strong><br>
+5.将纤维素粉加入层析柱使固定相在4-5厘米或一半<br>
+6.用少量乙醇将杯壁上的纤维素粉冲洗下去<br>
+7.打开活塞让液面缓慢下降，当固液相切时关闭活塞<br>
+8.取混合液，先轻轻晃动，滴入层析柱中<br>
+9.打开活塞让上升的液面缓慢下降，当固液相切时关闭活塞<br>
+10.加入乙醇，少量多次，打开活塞让上升的液面缓慢下降，当固液相切时关闭活塞（分离红色的罗丹明B）<br>
+11.第一种分离完全后，加水，少量多次，打开活塞让上升的液面缓慢下降，当固液相切时关闭活塞（分离蓝色的靛红）</p>
+</blockquote>
+<img src="https://dongfangmingjian.github.io/blog/柱层析流程和装置.png" style="width: 100%;" alt="图片描述">
+<img src="https://dongfangmingjian.github.io/blog/柱色谱装置.png" style="width: 30%;" alt="图片描述">
+<img src="https://dongfangmingjian.github.io/blog/涂抹凡士林.png" style="width: 100%;" alt="图片描述">
+<h5 id="薄层色谱">薄层色谱 </h5>
+<p><strong>实验步骤</strong></p>
+<blockquote>
+<p>1.烧杯取硅胶倒入蒸馏水<br>
+2.手指捏住玻璃板两个对角，从一端到另一端倒上硅胶溶液<br>
+3.左右轻轻晃动，使其在重力作用下均匀铺满<br>
+4.去公用台找板，下端1厘米处用毛细管点样<br>
+<a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883509&amp;sm=1">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883509&amp;sm=1</a><br>
+<img src="https://dongfangmingjian.github.io/blog/薄层平板.png" style="width: 60%;" alt="图片描述"></p>
+</blockquote>
+<h5 id="萃取">萃取 </h5>
+<p><strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取梨形分液漏斗，加入少量水<strong>先捡漏</strong>，如果漏涂抹凡士林<br>
+2.配液液混合物，加入，<strong>塞上塞子，关闭活塞</strong><br>
+3.规范地震荡<br>
+4.如果有气体，打开活塞放气，然后关上活塞，继续震荡<br>
+5.放到铁架台上静置分层，下接三角烧杯<br>
+6.<strong>拿下塞子</strong>，下层从下口放出，上层从上口倒出<br>
+<a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549032&amp;replay=true">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549032&amp;replay=true</a></p>
+</blockquote>
+<img src="https://dongfangmingjian.github.io/blog/分液漏斗的振荡及开关活塞的方法：.png" style="width: 100%;" alt="图片描述">
+<h5 id="液体的干燥">液体的干燥 </h5>
+<p><strong>实验步骤</strong></p>
+<blockquote>
+<p>1.取两个三角烧瓶，洗一下吹干<br>
+2.加入给的有机物，再适量加入一小勺干燥剂（1/10），震荡，盖上塞子，静置<br>
+3.用倾析法转移液体到另一个三角烧瓶，不要把干燥剂倒出来</p>
+</blockquote>
+<p><a href="https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549033&amp;replay=true">https://www.icourse163.org/learn/HZAU-1466005182?tid=1475286458#/learn/content?type=detail&amp;id=1264883513&amp;cid=1304549033&amp;replay=true</a><br>
+<img src="https://dongfangmingjian.github.io/blog/液体干燥装置.png" style="width: 30%;" alt="图片描述"></p>
+</div></body></html>
+    </div>
+  </body>
+</html>
