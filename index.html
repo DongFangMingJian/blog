@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人门户 | 我的数字空间</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbc;
+            --accent-color: #ff7e5f;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-color: #6b8cbc;
+            --secondary-color: #4a6fa5;
+            --accent-color: #ff9e80;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 头部和问候语 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .greeting {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .greeting h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .greeting p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 夜间模式切换 */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: var(--transition);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: var(--transition);
+            width: 26px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .theme-label {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        /* 卡片布局 */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .greeting h1 {
+                font-size: 2.5rem;
+            }
+            
+            .greeting p {
+                font-size: 1rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .theme-switch-wrapper {
+                margin-top: 20px;
+                align-self: flex-end;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .greeting h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h2><i class="fas fa-user-circle"></i> 个人门户</h2>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider"></div>
+                </label>
+                <div class="theme-label">夜间模式</div>
+            </div>
+        </header>
+
+        <section class="greeting">
+            <h1 id="greeting-text">你好，朋友！</h1>
+            <p>欢迎来到我的个人数字空间，这里整合了我常用的在线工具和资源。</p>
+        </section>
+
+        <main class="cards-container" id="cards-container">
+            <!-- 卡片将通过JavaScript动态生成 -->
+        </main>
+
+        <footer>
+            <p>© 2026 个人门户 | 设计响应式，支持夜间模式与移动端适配</p>
+            <p>最后更新: 2026.1<span id="current-date"></span></p>
+            <p id="card-count">当前卡片数量: <span id="count">0</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // ======================
+        // 卡片数据配置 - 在这里添加新卡片
+        // ======================
+        const cardData = [
+            {
+                id: 1,
+                title: "个人博客",
+                icon: "fas fa-blog",
+                description: "记录我的技术学习、生活思考和创作分享，包含编程、设计、阅读等内容。",
+                link: "./blog.html",
+                linkText: "访问博客"
+            },
+            {
+                id: 2,
+                title: "收藏夹",
+                icon: "fas fa-bookmark",
+                description: "精心整理的书签和资源链接，涵盖技术文档、实用工具、设计灵感等。",
+                link: "#",
+                linkText: "查看收藏"
+            },
+            {
+                id: 3,
+                title: "书架",
+                icon: "fas fa-book",
+                description: "我的数字图书馆，收藏了技术书籍、文学作品和各类阅读资料。",
+                link: "./books.html",
+                linkText: "浏览书架"
+            },
+            {
+                id: 4,
+                title: "云空间",
+                icon: "fas fa-cloud",
+                description: "个人文件存储与同步空间，支持文档、图片、视频等多种格式。",
+                link: "#",
+                linkText: "进入云空间"
+            },
+            {
+                id: 5,
+                title: "图床",
+                icon: "fas fa-images",
+                description: "图片托管服务，用于博客配图、项目展示和在线图片管理。",
+                link: "./picture-bed.html",
+                linkText: "管理图片"
+            },
+            {
+                id: 6,
+                title: "工具集",
+                icon: "fas fa-tools",
+                description: "常用在线工具集合，包括格式转换、代码编辑、设计工具等。",
+                link: "#",
+                linkText: "使用工具"
+            }
+            // ============================
+            // 在这里添加新卡片，格式如下：
+            // {
+            //     id: 7, // 请确保ID是唯一的
+            //     title: "新卡片名称",
+            //     icon: "Font Awesome图标类名",
+            //     description: "卡片描述",
+            //     link: "#", // 实际链接地址
+            //     linkText: "按钮文字"
+            // },
+            // ============================
+        ];
+
+        // ======================
+        // 功能函数
+        // ======================
+        
+        // 根据时间显示不同的问候语
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.getElementById('greeting-text');
+            let greeting;
+            
+            if (hour < 6) {
+                greeting = "深夜好，夜猫子！";
+            } else if (hour < 12) {
+                greeting = "早上好，新的一天开始了！";
+            } else if (hour < 14) {
+                greeting = "中午好，休息一下吧！";
+            } else if (hour < 18) {
+                greeting = "下午好，工作顺利吗？";
+            } else if (hour < 22) {
+                greeting = "晚上好，今天过得如何？";
+            } else {
+                greeting = "夜深了，注意休息哦！";
+            }
+            
+            greetingElement.textContent = greeting;
+        }
+
+        // 生成卡片HTML
+        function createCardHTML(card) {
+            return `
+                <div class="card" data-id="${card.id}">
+                    <div class="card-icon">
+                        <i class="${card.icon}"></i>
+                    </div>
+                    <h3>${card.title}</h3>
+                    <p>${card.description}</p>
+                    <a href="${card.link}" class="card-link" target="_blank">${card.linkText}</a>
+                </div>
+            `;
+        }
+
+        // 渲染所有卡片
+        function renderCards() {
+            const container = document.getElementById('cards-container');
+            let cardsHTML = '';
+            
+            // 为每个卡片生成HTML
+            cardData.forEach(card => {
+                cardsHTML += createCardHTML(card);
+            });
+            
+            // 将卡片HTML插入容器
+            container.innerHTML = cardsHTML;
+            
+            // 更新卡片数量显示
+            document.getElementById('count').textContent = cardData.length;
+            
+            // 为卡片添加动画延迟
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+        }
+
+        // 切换夜间模式
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            // 更新开关状态
+            document.getElementById('checkbox').checked = isDarkMode;
+        }
+
+        // 添加新卡片（可通过控制台调用此函数）
+        function addNewCard(card) {
+            // 确保卡片有ID
+            if (!card.id) {
+                card.id = cardData.length > 0 ? Math.max(...cardData.map(c => c.id)) + 1 : 1;
+            }
+            
+            // 添加到卡片数据
+            cardData.push(card);
+            
+            // 重新渲染卡片
+            renderCards();
+            
+            console.log(`已添加新卡片: ${card.title} (ID: ${card.id})`);
+        }
+
+        // 示例：如何通过控制台添加新卡片
+        // 复制以下代码到浏览器控制台执行：
+        /*
+        addNewCard({
+            title: "音乐库",
+            icon: "fas fa-music",
+            description: "我的个人音乐收藏，包含喜爱的歌曲、专辑和播放列表。",
+            link: "#",
+            linkText: "播放音乐"
+        });
+        */
+
+        // 移除卡片（通过ID）
+        function removeCardById(id) {
+            const index = cardData.findIndex(card => card.id === id);
+            if (index !== -1) {
+                const removedCard = cardData.splice(index, 1)[0];
+                renderCards();
+                console.log(`已移除卡片: ${removedCard.title} (ID: ${removedCard.id})`);
+            } else {
+                console.log(`未找到ID为${id}的卡片`);
+            }
+        }
+
+        // 获取所有卡片数据（用于调试）
+        function getAllCards() {
+            console.log("当前所有卡片:", cardData);
+            return cardData;
+        }
+
+        // 初始化页面
+        function initPage() {
+            // 设置问候语
+            updateGreeting();
+            
+            // 设置当前日期
+            const currentDateElement = document.getElementById('current-date');
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            currentDateElement.textContent = now.toLocaleDateString('zh-CN', options);
+            
+            // 检查本地存储中的夜间模式设置
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (savedDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('checkbox').checked = true;
+            }
+            
+            // 渲染卡片
+            renderCards();
+            
+            // 为夜间模式切换按钮添加事件监听
+            document.getElementById('checkbox').addEventListener('change', toggleDarkMode);
+            
+            // 为所有卡片链接添加点击效果（事件委托）
+            document.getElementById('cards-container').addEventListener('click', function(e) {
+                if (e.target.classList.contains('card-link')) {
+                    e.preventDefault();
+                    const cardTitle = e.target.closest('.card').querySelector('h3').textContent;
+                    alert(`即将跳转到 ${cardTitle} 页面\n(这是一个演示，实际项目中这里会是真实链接)`);
+                }
+            });
+            
+            // 将工具函数暴露给全局作用域，方便调试
+            window.addNewCard = addNewCard;
+            window.removeCardById = removeCardById;
+            window.getAllCards = getAllCards;
+            
+            console.log("卡片管理工具已加载！");
+            console.log("可用命令：");
+            console.log("  addNewCard({title:'新卡片', icon:'fas fa-icon', description:'描述', link:'#', linkText:'按钮文字'})");
+            console.log("  removeCardById(卡片ID)");
+            console.log("  getAllCards()");
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
