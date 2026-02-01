@@ -565,18 +565,6 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--secondary-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .original-url {
-            font-size: 0.8rem;
-            font-weight: normal;
-            color: var(--accent-color);
-            background-color: rgba(255, 126, 95, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
         }
 
         .book-url {
@@ -585,10 +573,6 @@
             word-break: break-all;
             color: var(--accent-color);
             margin-bottom: 15px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.03);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
         }
 
         .copy-url-btn {
@@ -750,16 +734,109 @@
     </style>
 </head>
 <body>
-    <!-- 头部（保持不变） -->
-    <!-- 页面内容（保持不变） -->
-    <!-- 页脚（保持不变） -->
+    <!-- 头部 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-book logo-icon"></i>
+                        <h1>数字书架</h1>
+                    </a>
+                </div>
+                <div class="nav-controls">
+                    <ul class="nav-links">
+                        <li><a href="index.html">个人门户</a></li>
+                        <li><a href="bookshelf.html" class="active">书架</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                    </ul>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider"></div>
+                        </label>
+                        <div class="theme-label">夜间模式</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <!-- 引入基础URL配置 -->
-    <script src="base-url.js"></script>
-    
+    <!-- 页面内容 -->
+    <main class="container">
+        <!-- 页面头部 -->
+        <section class="page-header">
+            <h2>个人数字书架</h2>
+            <p>收藏和整理我的电子书籍资源，包含技术文档、文学作品、学习资料等。所有书籍提供直接下载链接。</p>
+        </section>
+
+        <!-- 书架统计 -->
+        <div class="books-stats">
+            <div class="stat-item">
+                <div class="stat-number" id="total-books">0</div>
+                <div class="stat-label">总藏书量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-categories">0</div>
+                <div class="stat-label">分类数量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-storage">0 GB</div>
+                <div class="stat-label">存储空间</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-tags">0</div>
+                <div class="stat-label">标签数量</div>
+            </div>
+        </div>
+
+        <!-- 书架主体布局 -->
+        <div class="bookshelf-layout">
+            <!-- 分类导航 -->
+            <nav class="category-nav" id="category-nav">
+                <!-- 分类导航将通过JavaScript动态生成 -->
+            </nav>
+
+            <!-- 书籍网格 -->
+            <section class="books-container">
+                <div class="books-header">
+                    <h3 id="current-category">全部书籍</h3>
+                    <div class="books-count" id="books-count">共 0 本书</div>
+                </div>
+                <div class="books-grid" id="books-grid">
+                    <!-- 书籍将通过JavaScript动态生成 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="index.html">个人门户</a></li>
+                    <li><a href="bookshelf.html">书架</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <p class="copyright">© 2023 数字书架 | 静态电子书管理，支持夜间模式与移动端适配</p>
+                <p class="copyright">最后更新: <span id="current-date"></span></p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // ======================
-        // 书籍数据（使用相对路径）
+        // 网站配置
+        // ======================
+        // 请在这里设置您网站的基础URL
+        // 例如: "https://www.myweb.com/"
+        // 注意: URL应该以斜杠结尾
+        const SITE_BASE_URL = "https://dongfangmingjian.github.io/blog/";
+        
+        // ======================
+        // 书籍数据
         // ======================
         const booksData = [
             {
@@ -767,10 +844,11 @@
                 title: "JavaScript高级程序设计",
                 author: "Nicholas C. Zakas",
                 description: "前端开发必读经典，全面介绍JavaScript核心概念与最佳实践。",
-                cover: "./images/books/javascript-advanced.jpg",
-                fileUrl: "./books/javascript-advanced.pdf",  // 相对路径
+                cover: "https://covers.openlibrary.org/b/id/8259441-L.jpg",
+                fileUrl: "./books/javascript-advanced.pdf", // 相对路径
                 format: "PDF",
-                fileSize: 5.2, // 数值，单位为MB
+                fileSize: "5.2",
+                fileSizeUnit: "MB",
                 pages: 730,
                 uploadDate: "2023-09-15",
                 mainCategory: "技术",
@@ -782,10 +860,11 @@
                 title: "深入理解计算机系统",
                 author: "Randal E. Bryant, David R. O'Hallaron",
                 description: "计算机科学经典教材，从程序员视角深入讲解计算机系统工作原理。",
-                cover: "./images/books/csapp.jpg",
-                fileUrl: "./books/csapp.pdf",  // 相对路径
+                cover: "https://covers.openlibrary.org/b/id/10515092-L.jpg",
+                fileUrl: "./books/csapp.pdf", // 相对路径
                 format: "PDF",
-                fileSize: 8.7,
+                fileSize: "8.7",
+                fileSizeUnit: "MB",
                 pages: 1120,
                 uploadDate: "2023-09-12",
                 mainCategory: "技术",
@@ -797,10 +876,11 @@
                 title: "百年孤独",
                 author: "加西亚·马尔克斯",
                 description: "魔幻现实主义文学代表作，讲述布恩迪亚家族七代人的传奇故事。",
-                cover: "./images/books/one-hundred-years-of-solitude.jpg",
-                fileUrl: "./books/one-hundred-years-of-solitude.epub",  // 相对路径
+                cover: "https://covers.openlibrary.org/b/id/8223181-L.jpg",
+                fileUrl: "./books/one-hundred-years-of-solitude.epub", // 相对路径
                 format: "EPUB",
-                fileSize: 2.1,
+                fileSize: "2.1",
+                fileSizeUnit: "MB",
                 pages: 360,
                 uploadDate: "2023-09-10",
                 mainCategory: "文学",
@@ -809,6 +889,150 @@
             },
             {
                 id: 4,
+                title: "设计模式：可复用面向对象软件的基础",
+                author: "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+                description: "软件工程经典著作，介绍23种常用设计模式及其应用。",
+                cover: "https://covers.openlibrary.org/b/id/10611018-L.jpg",
+                fileUrl: "./books/design-patterns.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "4.8",
+                fileSizeUnit: "MB",
+                pages: 395,
+                uploadDate: "2023-09-08",
+                mainCategory: "技术",
+                subCategory: "软件工程",
+                tags: ["设计模式", "软件工程", "面向对象", "编程"]
+            },
+            {
+                id: 5,
+                title: "人类简史",
+                author: "尤瓦尔·赫拉利",
+                description: "从认知革命到科学革命，全面梳理人类发展历程的宏大历史著作。",
+                cover: "https://covers.openlibrary.org/b/id/8621461-L.jpg",
+                fileUrl: "./books/sapiens.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "6.3",
+                fileSizeUnit: "MB",
+                pages: 512,
+                uploadDate: "2023-09-05",
+                mainCategory: "人文社科",
+                subCategory: "历史",
+                tags: ["历史", "人类学", "社科", "畅销书"]
+            },
+            {
+                id: 6,
+                title: "Python编程：从入门到实践",
+                author: "Eric Matthes",
+                description: "Python入门经典教材，通过实际项目帮助读者掌握Python编程。",
+                cover: "https://covers.openlibrary.org/b/id/11081899-L.jpg",
+                fileUrl: "./books/python-crash-course.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "7.1",
+                fileSizeUnit: "MB",
+                pages: 544,
+                uploadDate: "2023-09-03",
+                mainCategory: "技术",
+                subCategory: "后端开发",
+                tags: ["Python", "编程", "入门", "后端"]
+            },
+            {
+                id: 7,
+                title: "活着",
+                author: "余华",
+                description: "中国当代文学经典，讲述普通人在大时代背景下的苦难与坚韧。",
+                cover: "https://covers.openlibrary.org/b/id/8765318-L.jpg",
+                fileUrl: "./books/to-live.epub", // 相对路径
+                format: "EPUB",
+                fileSize: "1.8",
+                fileSizeUnit: "MB",
+                pages: 280,
+                uploadDate: "2023-08-30",
+                mainCategory: "文学",
+                subCategory: "中国文学",
+                tags: ["小说", "中国文学", "经典", "当代"]
+            },
+            {
+                id: 8,
+                title: "算法导论",
+                author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+                description: "算法领域权威教材，全面介绍算法设计与分析的基本原理。",
+                cover: "https://covers.openlibrary.org/b/id/10612168-L.jpg",
+                fileUrl: "./books/introduction-to-algorithms.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "12.5",
+                fileSizeUnit: "MB",
+                pages: 1292,
+                uploadDate: "2023-08-28",
+                mainCategory: "技术",
+                subCategory: "算法",
+                tags: ["算法", "计算机科学", "数据结构", "编程"]
+            },
+            {
+                id: 9,
+                title: "经济学原理",
+                author: "N. Gregory Mankiw",
+                description: "经济学入门经典教材，系统介绍微观经济学和宏观经济学基本原理。",
+                cover: "https://covers.openlibrary.org/b/id/8222426-L.jpg",
+                fileUrl: "./books/principles-of-economics.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "9.4",
+                fileSizeUnit: "MB",
+                pages: 856,
+                uploadDate: "2023-08-25",
+                mainCategory: "人文社科",
+                subCategory: "经济学",
+                tags: ["经济学", "社科", "教材", "入门"]
+            },
+            {
+                id: 10,
+                title: "Vue.js设计与实现",
+                author: "霍春阳",
+                description: "深入解析Vue.js框架设计原理与实现细节，适合中高级前端开发者。",
+                cover: "https://covers.openlibrary.org/b/id/13229376-L.jpg",
+                fileUrl: "./books/vue-design-and-implementation.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "6.8",
+                fileSizeUnit: "MB",
+                pages: 420,
+                uploadDate: "2023-08-22",
+                mainCategory: "技术",
+                subCategory: "前端开发",
+                tags: ["Vue", "前端", "框架", "JavaScript"]
+            },
+            {
+                id: 11,
+                title: "围城",
+                author: "钱钟书",
+                description: "中国现代文学经典，以讽刺幽默的笔触描写知识分子的生活与困境。",
+                cover: "https://covers.openlibrary.org/b/id/8223107-L.jpg",
+                fileUrl: "./books/fortress-besieged.epub", // 相对路径
+                format: "EPUB",
+                fileSize: "2.3",
+                fileSizeUnit: "MB",
+                pages: 320,
+                uploadDate: "2023-08-20",
+                mainCategory: "文学",
+                subCategory: "中国文学",
+                tags: ["小说", "中国文学", "经典", "现代"]
+            },
+            {
+                id: 12,
+                title: "深度学习",
+                author: "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+                description: "深度学习领域权威教材，全面介绍深度学习理论与应用。",
+                cover: "https://covers.openlibrary.org/b/id/8764542-L.jpg",
+                fileUrl: "./books/deep-learning.pdf", // 相对路径
+                format: "PDF",
+                fileSize: "15.2",
+                fileSizeUnit: "MB",
+                pages: 775,
+                uploadDate: "2023-08-18",
+                mainCategory: "技术",
+                subCategory: "人工智能",
+                tags: ["深度学习", "人工智能", "机器学习", "AI"]
+            },
+            {
+                id: 13,
                 title: "老人与海（英文版）",
                 author: "欧内斯特·海明威(Ernest Hemingway);2016;知识出版社",
                 description: "世界经典文学名著系列:老人与海 The Old Man and the Sea (全英文版)",
@@ -838,11 +1062,35 @@
         // 功能函数
         // ======================
 
+        // 将相对路径转换为绝对路径
+        function convertToAbsoluteUrl(relativeUrl) {
+            // 如果URL已经是绝对路径（以http://或https://开头），直接返回
+            if (relativeUrl.startsWith('http://') || relativeUrl.startsWith('https://')) {
+                return relativeUrl;
+            }
+            
+            // 确保基础URL以斜杠结尾
+            let baseUrl = SITE_BASE_URL;
+            if (!baseUrl.endsWith('/')) {
+                baseUrl += '/';
+            }
+            
+            // 如果相对路径以./开头，去掉./
+            let cleanRelativeUrl = relativeUrl;
+            if (cleanRelativeUrl.startsWith('./')) {
+                cleanRelativeUrl = cleanRelativeUrl.substring(2);
+            }
+            
+            // 拼接基础URL和相对路径
+            return baseUrl + cleanRelativeUrl;
+        }
+
         // 计算总存储空间
         function calculateTotalStorage() {
             let totalMB = 0;
             booksData.forEach(book => {
-                totalMB += book.fileSize;
+                const size = parseFloat(book.fileSize) || 0;
+                totalMB += size;
             });
             
             // 转换为GB并保留一位小数
@@ -883,18 +1131,21 @@
         function filterBooksByCategory() {
             let filteredBooks = booksData;
             
+            // 根据大分类筛选
             if (config.currentMainCategory !== 'all') {
                 filteredBooks = filteredBooks.filter(book => 
                     book.mainCategory === config.currentMainCategory
                 );
             }
             
+            // 根据子分类筛选
             if (config.currentSubCategory !== 'all') {
                 filteredBooks = filteredBooks.filter(book => 
                     book.subCategory === config.currentSubCategory
                 );
             }
             
+            // 根据标签筛选
             if (config.currentTag !== 'all') {
                 filteredBooks = filteredBooks.filter(book => 
                     book.tags.includes(config.currentTag)
@@ -987,6 +1238,7 @@
                 btn.addEventListener('click', function() {
                     const mainCategory = this.getAttribute('data-main-category');
                     
+                    // 如果点击的是已激活的大分类，则关闭子分类
                     if (config.currentMainCategory === mainCategory) {
                         config.currentMainCategory = 'all';
                         config.currentSubCategory = 'all';
@@ -1052,14 +1304,13 @@
                 `<span class="book-tag" data-tag="${tag}">#${tag}</span>`
             ).join('');
             
-            // 使用toAbsoluteUrl函数转换相对路径为绝对路径
-            const absoluteFileUrl = toAbsoluteUrl(book.fileUrl);
-            const absoluteCoverUrl = toAbsoluteUrl(book.cover);
+            // 将相对路径转换为绝对路径用于显示和复制
+            const absoluteFileUrl = convertToAbsoluteUrl(book.fileUrl);
             
             return `
                 <div class="book-card" data-id="${book.id}">
                     <div class="book-cover-container" data-file-url="${absoluteFileUrl}">
-                        <div class="book-cover" style="background-image: url('${absoluteCoverUrl}')"></div>
+                        <div class="book-cover" style="background-image: url('${book.cover}')"></div>
                         <div class="book-format">${book.format}</div>
                         <div class="preview-overlay">
                             <div class="preview-text">点击预览</div>
@@ -1077,7 +1328,7 @@
                         <div class="book-meta">
                             <span>${book.uploadDate}</span>
                             <span>${book.pages}页</span>
-                            <span>${formatFileSize(book.fileSize)}</span>
+                            <span>${book.fileSize} ${book.fileSizeUnit}</span>
                         </div>
                         
                         <div class="book-url-container">
@@ -1095,6 +1346,7 @@
             const booksGridContainer = document.getElementById('books-grid');
             const filteredBooks = filterBooksByCategory();
             
+            // 更新书籍数量
             document.getElementById('books-count').textContent = `共 ${filteredBooks.length} 本书`;
             
             if (filteredBooks.length === 0) {
@@ -1118,6 +1370,7 @@
             document.querySelectorAll('.book-cover-container').forEach(cover => {
                 cover.addEventListener('click', function() {
                     const fileUrl = this.getAttribute('data-file-url');
+                    // 在新标签页中打开PDF文件
                     window.open(fileUrl, '_blank');
                 });
             });
@@ -1125,7 +1378,7 @@
             // 为复制链接按钮添加事件监听
             document.querySelectorAll('.copy-url-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                    e.stopPropagation(); // 防止事件冒泡
                     const bookUrl = this.getAttribute('data-url');
                     copyToClipboard(bookUrl, this);
                 });
@@ -1134,7 +1387,7 @@
             // 为标签添加点击事件
             document.querySelectorAll('.book-tag').forEach(tag => {
                 tag.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                    e.stopPropagation(); // 防止事件冒泡
                     const tagName = this.getAttribute('data-tag');
                     config.currentTag = tagName;
                     
@@ -1152,6 +1405,7 @@
             const mainCategories = getAllMainCategories();
             document.getElementById('total-categories').textContent = mainCategories.length;
             
+            // 计算总存储空间
             const totalStorageGB = calculateTotalStorage();
             document.getElementById('total-storage').textContent = totalStorageGB + " GB";
             
@@ -1168,11 +1422,13 @@
                 button.textContent = '已复制！';
                 button.classList.add('copied');
                 
+                // 3秒后恢复原始状态
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.classList.remove('copied');
                 }, 3000);
             } catch (err) {
+                // 备用方法
                 const textArea = document.createElement('textarea');
                 textArea.value = text;
                 document.body.appendChild(textArea);
@@ -1196,6 +1452,7 @@
                         button.style.backgroundColor = '';
                     }, 3000);
                     
+                    // 提供手动复制选项
                     prompt('请手动复制以下链接:', text);
                 }
                 
@@ -1209,29 +1466,41 @@
             const isDarkMode = document.body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDarkMode);
             
+            // 更新开关状态
             document.getElementById('checkbox').checked = isDarkMode;
         }
 
         // 初始化页面
         function initPage() {
+            // 设置当前日期
             const currentDateElement = document.getElementById('current-date');
             const now = new Date();
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             currentDateElement.textContent = now.toLocaleDateString('zh-CN', options);
             
+            // 检查本地存储中的夜间模式设置
             const savedDarkMode = localStorage.getItem('darkMode') === 'true';
             if (savedDarkMode) {
                 document.body.classList.add('dark-mode');
                 document.getElementById('checkbox').checked = true;
             }
             
+            // 更新书架统计
             updateBookshelfStats();
+            
+            // 渲染分类导航
             renderCategoryNav();
+            
+            // 渲染书籍
             renderBooks();
+            
+            // 更新当前分类文本
             updateCurrentCategoryText();
             
+            // 为夜间模式切换按钮添加事件监听
             document.getElementById('checkbox').addEventListener('change', toggleDarkMode);
             
+            // 为导航链接添加激活状态
             document.querySelectorAll('.nav-links a').forEach(link => {
                 if (link.getAttribute('href') === 'bookshelf.html') {
                     link.classList.add('active');
@@ -1244,6 +1513,7 @@
             });
         }
 
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', initPage);
     </script>
 </body>
