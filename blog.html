@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人博客 | 思考与分享</title>
+    <title>个人博客 | 思行录</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -41,12 +41,13 @@
             line-height: 1.6;
             transition: var(--transition);
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         /* 头部 */
@@ -167,7 +168,6 @@
         .theme-label {
             margin-left: 10px;
             font-weight: 600;
-            color: var(--text-color);
         }
 
         /* 博客头部 */
@@ -534,8 +534,8 @@
                     <li><a href="index.html">个人门户</a></li>
                     <li><a href="blog.html">博客</a></li>
                     <li><a href="about.html">关于</a></li>
-                    <li><a href="#">联系</a></li>
-                    <li><a href="#">RSS订阅</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                    <li><a href="rss.xml">RSS订阅</a></li>
                 </ul>
                 <p class="copyright">© 2023 思行录 | 本博客采用静态部署，支持夜间模式与移动端适配</p>
                 <p class="copyright">最后更新: <span id="current-date"></span> | 文章总数: <span id="article-count">0</span></p>
@@ -555,7 +555,8 @@
                 date: "2023-10-15",
                 readTime: "8分钟",
                 tags: ["前端开发", "CSS", "布局"],
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-css-grid.html"
             },
             {
                 id: 2,
@@ -564,7 +565,8 @@
                 date: "2023-10-10",
                 readTime: "10分钟",
                 tags: ["JavaScript", "编程", "前端开发"],
-                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80"
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-javascript-closure.html"
             },
             {
                 id: 3,
@@ -573,7 +575,8 @@
                 date: "2023-10-05",
                 readTime: "12分钟",
                 tags: ["静态网站", "工具", "部署"],
-                image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-static-site-generators.html"
             },
             {
                 id: 4,
@@ -582,7 +585,8 @@
                 date: "2023-09-28",
                 readTime: "15分钟",
                 tags: ["学习方法", "个人成长", "效率"],
-                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-learning-system.html"
             },
             {
                 id: 5,
@@ -591,7 +595,8 @@
                 date: "2023-09-20",
                 readTime: "9分钟",
                 tags: ["响应式设计", "前端开发", "CSS"],
-                image: "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-responsive-design.html"
             },
             {
                 id: 6,
@@ -600,7 +605,8 @@
                 date: "2023-09-15",
                 readTime: "14分钟",
                 tags: ["工具", "知识管理", "效率"],
-                image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-knowledge-management.html"
             },
             {
                 id: 7,
@@ -609,7 +615,8 @@
                 date: "2023-09-10",
                 readTime: "11分钟",
                 tags: ["Vue", "前端开发", "JavaScript"],
-                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-vue-composition-api.html"
             },
             {
                 id: 8,
@@ -618,7 +625,8 @@
                 date: "2023-09-05",
                 readTime: "13分钟",
                 tags: ["远程工作", "效率", "生活"],
-                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-remote-work.html"
             },
             {
                 id: 9,
@@ -627,7 +635,8 @@
                 date: "2023-08-28",
                 readTime: "16分钟",
                 tags: ["性能优化", "前端开发", "Web"],
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                url: "article-web-performance.html"
             }
         ];
 
@@ -643,6 +652,29 @@
         // ======================
         // 功能函数
         // ======================
+
+        // 根据时间显示不同的问候语
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.getElementById('greeting-text');
+            let greeting;
+            
+            if (hour < 6) {
+                greeting = "深夜好，夜猫子！";
+            } else if (hour < 12) {
+                greeting = "早上好，新的一天开始了！";
+            } else if (hour < 14) {
+                greeting = "中午好，休息一下吧！";
+            } else if (hour < 18) {
+                greeting = "下午好，工作顺利吗？";
+            } else if (hour < 22) {
+                greeting = "晚上好，今天过得如何？";
+            } else {
+                greeting = "夜深了，注意休息哦！";
+            }
+            
+            greetingElement.textContent = greeting;
+        }
 
         // 获取所有标签
         function getAllTags() {
@@ -718,7 +750,7 @@
                         <p class="article-excerpt">${article.excerpt}</p>
                         <div class="article-meta">
                             <span>阅读时间: ${article.readTime}</span>
-                            <a href="#" class="read-more" data-id="${article.id}">阅读全文 →</a>
+                            <a href="${article.url}" class="read-more">阅读全文 →</a>
                         </div>
                     </div>
                 </article>
@@ -749,24 +781,18 @@
             
             articlesContainer.innerHTML = articlesHTML;
             
-            // 为阅读全文按钮添加事件监听
-            document.querySelectorAll('.read-more').forEach(btn => {
-                btn.addEventListener('click', function(e) {
+            // 为文章标签添加点击事件（标签筛选）
+            document.querySelectorAll('.article-tag').forEach(tag => {
+                tag.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const articleId = this.getAttribute('data-id');
-                    showArticleDetail(articleId);
+                    const tagName = this.textContent.substring(1);
+                    config.currentTag = tagName;
+                    config.currentPage = 1;
+                    renderArticles();
+                    renderTagFilter();
+                    renderPagination();
                 });
             });
-        }
-
-        // 显示文章详情
-        function showArticleDetail(articleId) {
-            const article = articlesData.find(a => a.id == articleId);
-            if (!article) return;
-            
-            // 在实际项目中，这里会跳转到单独的文章页面
-            // 这里我们用一个简单的弹窗模拟
-            alert(`文章详情\n\n标题: ${article.title}\n\n日期: ${article.date}\n\n标签: ${article.tags.join(', ')}\n\n内容预览: ${article.excerpt}\n\n(在实际项目中，这里会是完整的文章内容)`);
         }
 
         // 生成分页
@@ -872,6 +898,10 @@
             
             // 为导航链接添加激活状态
             document.querySelectorAll('.nav-links a').forEach(link => {
+                if (link.getAttribute('href') === 'blog.html') {
+                    link.classList.add('active');
+                }
+                
                 link.addEventListener('click', function() {
                     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
                     this.classList.add('active');
