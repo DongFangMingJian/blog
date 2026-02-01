@@ -305,8 +305,8 @@
         </main>
 
         <footer>
-            <p>© 2026 个人门户 | 设计响应式，支持夜间模式与移动端适配</p>
-            <p>最后更新: 2026.1<span id="current-date"></span></p>
+            <p>© 2023 个人门户 | 设计响应式，支持夜间模式与移动端适配</p>
+            <p>最后更新: <span id="current-date"></span></p>
             <p id="card-count">当前卡片数量: <span id="count">0</span></p>
         </footer>
     </div>
@@ -321,7 +321,7 @@
                 title: "个人博客",
                 icon: "fas fa-blog",
                 description: "记录我的技术学习、生活思考和创作分享，包含编程、设计、阅读等内容。",
-                link: "./blog.html",
+                link: "./blog.html", // 替换为实际链接
                 linkText: "访问博客"
             },
             {
@@ -329,7 +329,7 @@
                 title: "收藏夹",
                 icon: "fas fa-bookmark",
                 description: "精心整理的书签和资源链接，涵盖技术文档、实用工具、设计灵感等。",
-                link: "#",
+                link: "https://example.com/favorites", // 替换为实际链接
                 linkText: "查看收藏"
             },
             {
@@ -337,7 +337,7 @@
                 title: "书架",
                 icon: "fas fa-book",
                 description: "我的数字图书馆，收藏了技术书籍、文学作品和各类阅读资料。",
-                link: "./books.html",
+                link: "https://example.com/bookshelf", // 替换为实际链接
                 linkText: "浏览书架"
             },
             {
@@ -345,7 +345,7 @@
                 title: "云空间",
                 icon: "fas fa-cloud",
                 description: "个人文件存储与同步空间，支持文档、图片、视频等多种格式。",
-                link: "#",
+                link: "https://example.com/cloud", // 替换为实际链接
                 linkText: "进入云空间"
             },
             {
@@ -353,7 +353,7 @@
                 title: "图床",
                 icon: "fas fa-images",
                 description: "图片托管服务，用于博客配图、项目展示和在线图片管理。",
-                link: "./picture-bed.html",
+                link: "https://example.com/image-host", // 替换为实际链接
                 linkText: "管理图片"
             },
             {
@@ -361,7 +361,7 @@
                 title: "工具集",
                 icon: "fas fa-tools",
                 description: "常用在线工具集合，包括格式转换、代码编辑、设计工具等。",
-                link: "#",
+                link: "https://example.com/tools", // 替换为实际链接
                 linkText: "使用工具"
             }
             // ============================
@@ -371,7 +371,7 @@
             //     title: "新卡片名称",
             //     icon: "Font Awesome图标类名",
             //     description: "卡片描述",
-            //     link: "#", // 实际链接地址
+            //     link: "https://example.com/your-link", // 实际链接地址
             //     linkText: "按钮文字"
             // },
             // ============================
@@ -413,7 +413,7 @@
                     </div>
                     <h3>${card.title}</h3>
                     <p>${card.description}</p>
-                    <a href="${card.link}" class="card-link" target="_blank">${card.linkText}</a>
+                    <a href="${card.link}" class="card-link" target="_blank" rel="noopener noreferrer">${card.linkText}</a>
                 </div>
             `;
         }
@@ -467,18 +467,6 @@
             console.log(`已添加新卡片: ${card.title} (ID: ${card.id})`);
         }
 
-        // 示例：如何通过控制台添加新卡片
-        // 复制以下代码到浏览器控制台执行：
-        /*
-        addNewCard({
-            title: "音乐库",
-            icon: "fas fa-music",
-            description: "我的个人音乐收藏，包含喜爱的歌曲、专辑和播放列表。",
-            link: "#",
-            linkText: "播放音乐"
-        });
-        */
-
         // 移除卡片（通过ID）
         function removeCardById(id) {
             const index = cardData.findIndex(card => card.id === id);
@@ -521,14 +509,7 @@
             // 为夜间模式切换按钮添加事件监听
             document.getElementById('checkbox').addEventListener('change', toggleDarkMode);
             
-            // 为所有卡片链接添加点击效果（事件委托）
-            document.getElementById('cards-container').addEventListener('click', function(e) {
-                if (e.target.classList.contains('card-link')) {
-                    e.preventDefault();
-                    const cardTitle = e.target.closest('.card').querySelector('h3').textContent;
-                    alert(`即将跳转到 ${cardTitle} 页面\n(这是一个演示，实际项目中这里会是真实链接)`);
-                }
-            });
+            // 移除之前的弹窗事件监听，现在链接直接跳转
             
             // 将工具函数暴露给全局作用域，方便调试
             window.addNewCard = addNewCard;
@@ -536,8 +517,9 @@
             window.getAllCards = getAllCards;
             
             console.log("卡片管理工具已加载！");
+            console.log("注意：现在卡片链接会直接跳转到目标页面，不再显示弹窗。");
             console.log("可用命令：");
-            console.log("  addNewCard({title:'新卡片', icon:'fas fa-icon', description:'描述', link:'#', linkText:'按钮文字'})");
+            console.log("  addNewCard({title:'新卡片', icon:'fas fa-icon', description:'描述', link:'https://...', linkText:'按钮文字'})");
             console.log("  removeCardById(卡片ID)");
             console.log("  getAllCards()");
         }
