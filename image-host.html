@@ -641,7 +641,7 @@
                     <li><a href="index.html">个人门户</a></li>
                     <li><a href="image-host.html">图床</a></li>
                     <li><a href="about.html">关于</a></li>
-                    <li><a href="#">联系</a></li>
+                    <li><a href="contact.html">联系</a></li>
                 </ul>
                 <p class="copyright">© 2023 图床服务 | 静态图片存储，支持夜间模式与移动端适配</p>
                 <p class="copyright">最后更新: <span id="current-date"></span> | 图片总数: <span id="image-count">0</span></p>
@@ -651,6 +651,15 @@
 
     <script>
         // ======================
+        // 配置部分 - 请在这里修改
+        // ======================
+        
+        // 1. 设置您网站的基础URL
+        //    将下面的 'https://www.myweb.com/' 替换为您网站的实际域名
+        //    如果图片已经是完整URL，可以留空字符串 ''
+        const BASE_URL = 'https://www.myweb.com/';
+        
+        // ======================
         // 图片数据
         // ======================
         const imagesData = [
@@ -659,7 +668,7 @@
                 title: "山间日出",
                 description: "壮丽的山间日出景象，金色的阳光洒在山脉上，云雾缭绕。",
                 filename: "mountain-sunrise.jpg",
-                url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "./images/mountain-sunrise.jpg", // 相对路径示例
                 uploadDate: "2023-09-15",
                 size: "2.4 MB",
                 dimensions: "1920x1080",
@@ -670,7 +679,7 @@
                 title: "城市夜景",
                 description: "繁华都市的夜景，高楼大厦的灯光在夜幕中闪烁。",
                 filename: "city-night.jpg",
-                url: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "./images/city-night.jpg", // 相对路径示例
                 uploadDate: "2023-09-12",
                 size: "3.1 MB",
                 dimensions: "2560x1440",
@@ -681,7 +690,7 @@
                 title: "海滩日落",
                 description: "宁静的海滩日落，温暖的色调和柔和的光线。",
                 filename: "beach-sunset.jpg",
-                url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "./images/beach-sunset.jpg", // 相对路径示例
                 uploadDate: "2023-09-10",
                 size: "2.8 MB",
                 dimensions: "1920x1280",
@@ -692,7 +701,7 @@
                 title: "森林小径",
                 description: "阳光透过树叶洒在森林小径上，营造出神秘而宁静的氛围。",
                 filename: "forest-path.jpg",
-                url: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", // 完整URL示例
                 uploadDate: "2023-09-08",
                 size: "2.2 MB",
                 dimensions: "1920x1280",
@@ -703,7 +712,7 @@
                 title: "咖啡与书籍",
                 description: "一杯热咖啡旁边放着一本打开的书籍，温馨的阅读时光。",
                 filename: "coffee-books.jpg",
-                url: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "./images/coffee-books.jpg", // 相对路径示例
                 uploadDate: "2023-09-05",
                 size: "1.8 MB",
                 dimensions: "1920x1280",
@@ -714,33 +723,11 @@
                 title: "雪山冰川",
                 description: "雄伟的雪山和冰川，展现大自然的壮丽与力量。",
                 filename: "snow-mountain.jpg",
-                url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                url: "./images/snow-mountain.jpg", // 相对路径示例
                 uploadDate: "2023-09-03",
                 size: "3.5 MB",
                 dimensions: "2560x1440",
                 tags: ["雪山", "冰川", "自然", "风景"]
-            },
-            {
-                id: 7,
-                title: "沙漠星空",
-                description: "沙漠夜晚的星空，银河清晰可见，展现宇宙的浩瀚。",
-                filename: "desert-stars.jpg",
-                url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                uploadDate: "2023-08-30",
-                size: "3.8 MB",
-                dimensions: "2560x1440",
-                tags: ["沙漠", "星空", "夜晚", "天文"]
-            },
-            {
-                id: 8,
-                title: "现代建筑",
-                description: "现代建筑的几何线条与光影效果，展现建筑设计的美感。",
-                filename: "modern-architecture.jpg",
-                url: "https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                uploadDate: "2023-08-28",
-                size: "2.6 MB",
-                dimensions: "1920x1080",
-                tags: ["建筑", "现代", "设计", "几何"]
             }
         ];
 
@@ -754,6 +741,33 @@
         // ======================
         // 功能函数
         // ======================
+
+        // 将相对路径转换为绝对路径
+        function getFullUrl(relativeUrl) {
+            // 如果已经是完整URL（以http://、https://或//开头），直接返回
+            if (relativeUrl.startsWith('http://') || 
+                relativeUrl.startsWith('https://') || 
+                relativeUrl.startsWith('//')) {
+                return relativeUrl;
+            }
+            
+            // 如果是相对路径，添加基础URL
+            // 确保BASE_URL以斜杠结尾，相对路径不以斜杠开头
+            let baseUrl = BASE_URL;
+            if (baseUrl && !baseUrl.endsWith('/')) {
+                baseUrl += '/';
+            }
+            
+            // 移除相对路径开头的 './' 或 '/'
+            let cleanRelativeUrl = relativeUrl;
+            if (cleanRelativeUrl.startsWith('./')) {
+                cleanRelativeUrl = cleanRelativeUrl.substring(2);
+            } else if (cleanRelativeUrl.startsWith('/')) {
+                cleanRelativeUrl = cleanRelativeUrl.substring(1);
+            }
+            
+            return baseUrl + cleanRelativeUrl;
+        }
 
         // 获取所有标签
         function getAllTags() {
@@ -806,9 +820,11 @@
                 `<span class="image-tag">#${tag}</span>`
             ).join('');
             
+            const fullUrl = getFullUrl(image.url);
+            
             return `
                 <div class="image-card" data-id="${image.id}">
-                    <div class="image-preview" style="background-image: url('${image.url}')" data-id="${image.id}">
+                    <div class="image-preview" style="background-image: url('${fullUrl}')" data-id="${image.id}">
                         <div class="image-overlay">
                             <button class="view-full-btn" data-id="${image.id}">查看大图</button>
                         </div>
@@ -829,8 +845,8 @@
                         
                         <div class="image-url-container">
                             <div class="url-label">图片URL：</div>
-                            <div class="image-url">${image.url}</div>
-                            <button class="copy-url-btn" data-url="${image.url}">复制链接</button>
+                            <div class="image-url">${fullUrl}</div>
+                            <button class="copy-url-btn" data-url="${fullUrl}">复制链接</button>
                         </div>
                     </div>
                 </div>
@@ -893,7 +909,8 @@
             const modalImage = document.getElementById('modal-image');
             const modalInfo = document.getElementById('modal-info');
             
-            modalImage.src = image.url;
+            const fullUrl = getFullUrl(image.url);
+            modalImage.src = fullUrl;
             modalImage.alt = image.title;
             
             const tagsHTML = image.tags.map(tag => 
@@ -911,8 +928,8 @@
                 </div>
                 <div class="image-url-container" style="margin-top: 15px;">
                     <div class="url-label">图片URL：</div>
-                    <div class="image-url">${image.url}</div>
-                    <button class="copy-url-btn" data-url="${image.url}">复制链接</button>
+                    <div class="image-url">${fullUrl}</div>
+                    <button class="copy-url-btn" data-url="${fullUrl}">复制链接</button>
                 </div>
             `;
             
