@@ -565,6 +565,18 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .original-url {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: var(--accent-color);
+            background-color: rgba(255, 126, 95, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         .book-url {
@@ -573,6 +585,10 @@
             word-break: break-all;
             color: var(--accent-color);
             margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-color);
         }
 
         .copy-url-btn {
@@ -837,9 +853,9 @@
                 author: "Nicholas C. Zakas",
                 description: "前端开发必读经典，全面介绍JavaScript核心概念与最佳实践。",
                 cover: "https://covers.openlibrary.org/b/id/8259441-L.jpg",
-                fileUrl: "https://example.com/books/javascript-advanced.pdf",
+                fileUrl: "./books/javascript-advanced.pdf", // 相对路径示例
                 format: "PDF",
-                fileSize: "5.2", // 以MB为单位，便于计算
+                fileSize: "5.2",
                 fileSizeUnit: "MB",
                 pages: 730,
                 uploadDate: "2023-09-15",
@@ -853,7 +869,7 @@
                 author: "Randal E. Bryant, David R. O'Hallaron",
                 description: "计算机科学经典教材，从程序员视角深入讲解计算机系统工作原理。",
                 cover: "https://covers.openlibrary.org/b/id/10515092-L.jpg",
-                fileUrl: "https://example.com/books/csapp.pdf",
+                fileUrl: "./books/csapp.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "8.7",
                 fileSizeUnit: "MB",
@@ -869,7 +885,7 @@
                 author: "加西亚·马尔克斯",
                 description: "魔幻现实主义文学代表作，讲述布恩迪亚家族七代人的传奇故事。",
                 cover: "https://covers.openlibrary.org/b/id/8223181-L.jpg",
-                fileUrl: "https://example.com/books/one-hundred-years-of-solitude.epub",
+                fileUrl: "./books/one-hundred-years-of-solitude.epub", // 相对路径示例
                 format: "EPUB",
                 fileSize: "2.1",
                 fileSizeUnit: "MB",
@@ -885,7 +901,7 @@
                 author: "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
                 description: "软件工程经典著作，介绍23种常用设计模式及其应用。",
                 cover: "https://covers.openlibrary.org/b/id/10611018-L.jpg",
-                fileUrl: "https://example.com/books/design-patterns.pdf",
+                fileUrl: "./books/design-patterns.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "4.8",
                 fileSizeUnit: "MB",
@@ -901,7 +917,7 @@
                 author: "尤瓦尔·赫拉利",
                 description: "从认知革命到科学革命，全面梳理人类发展历程的宏大历史著作。",
                 cover: "https://covers.openlibrary.org/b/id/8621461-L.jpg",
-                fileUrl: "https://example.com/books/sapiens.pdf",
+                fileUrl: "./books/sapiens.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "6.3",
                 fileSizeUnit: "MB",
@@ -917,7 +933,7 @@
                 author: "Eric Matthes",
                 description: "Python入门经典教材，通过实际项目帮助读者掌握Python编程。",
                 cover: "https://covers.openlibrary.org/b/id/11081899-L.jpg",
-                fileUrl: "https://example.com/books/python-crash-course.pdf",
+                fileUrl: "./books/python-crash-course.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "7.1",
                 fileSizeUnit: "MB",
@@ -933,7 +949,7 @@
                 author: "余华",
                 description: "中国当代文学经典，讲述普通人在大时代背景下的苦难与坚韧。",
                 cover: "https://covers.openlibrary.org/b/id/8765318-L.jpg",
-                fileUrl: "https://example.com/books/to-live.epub",
+                fileUrl: "./books/to-live.epub", // 相对路径示例
                 format: "EPUB",
                 fileSize: "1.8",
                 fileSizeUnit: "MB",
@@ -949,7 +965,7 @@
                 author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
                 description: "算法领域权威教材，全面介绍算法设计与分析的基本原理。",
                 cover: "https://covers.openlibrary.org/b/id/10612168-L.jpg",
-                fileUrl: "https://example.com/books/introduction-to-algorithms.pdf",
+                fileUrl: "./books/introduction-to-algorithms.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "12.5",
                 fileSizeUnit: "MB",
@@ -965,7 +981,7 @@
                 author: "N. Gregory Mankiw",
                 description: "经济学入门经典教材，系统介绍微观经济学和宏观经济学基本原理。",
                 cover: "https://covers.openlibrary.org/b/id/8222426-L.jpg",
-                fileUrl: "https://example.com/books/principles-of-economics.pdf",
+                fileUrl: "./books/principles-of-economics.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "9.4",
                 fileSizeUnit: "MB",
@@ -981,7 +997,7 @@
                 author: "霍春阳",
                 description: "深入解析Vue.js框架设计原理与实现细节，适合中高级前端开发者。",
                 cover: "https://covers.openlibrary.org/b/id/13229376-L.jpg",
-                fileUrl: "https://example.com/books/vue-design-and-implementation.pdf",
+                fileUrl: "./books/vue-design-and-implementation.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "6.8",
                 fileSizeUnit: "MB",
@@ -997,7 +1013,7 @@
                 author: "钱钟书",
                 description: "中国现代文学经典，以讽刺幽默的笔触描写知识分子的生活与困境。",
                 cover: "https://covers.openlibrary.org/b/id/8223107-L.jpg",
-                fileUrl: "https://example.com/books/fortress-besieged.epub",
+                fileUrl: "./books/fortress-besieged.epub", // 相对路径示例
                 format: "EPUB",
                 fileSize: "2.3",
                 fileSizeUnit: "MB",
@@ -1013,7 +1029,7 @@
                 author: "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
                 description: "深度学习领域权威教材，全面介绍深度学习理论与应用。",
                 cover: "https://covers.openlibrary.org/b/id/8764542-L.jpg",
-                fileUrl: "https://example.com/books/deep-learning.pdf",
+                fileUrl: "./books/deep-learning.pdf", // 相对路径示例
                 format: "PDF",
                 fileSize: "15.2",
                 fileSizeUnit: "MB",
@@ -1022,23 +1038,6 @@
                 mainCategory: "技术",
                 subCategory: "人工智能",
                 tags: ["深度学习", "人工智能", "机器学习", "AI"]
-            },
-            
-            {
-                id: 13,
-                title: "老人与海（英文版）",
-                author: "欧内斯特·海明威(Ernest Hemingway);2016;知识出版社",
-                description: "世界经典文学名著系列:老人与海 The Old Man and the Sea (全英文版)",
-                cover: "./bookshelf/covers/老人与海英文版.png",
-                fileUrl: "./bookshelf/老人与海英文版.pdf",
-                format: "PDF",
-                fileSize: "0.618",
-                fileSizeUnit: "MB",
-                pages: 122,
-                uploadDate: "2026-02-01",
-                mainCategory: "文学",
-                subCategory: "外国文学",
-                tags: ["中篇小说", "现代主义文学"]
             }
         ];
 
@@ -1054,6 +1053,29 @@
         // ======================
         // 功能函数
         // ======================
+
+        // 将相对路径转换为完整URL
+        function getFullUrl(relativePath) {
+            // 如果已经是完整URL，直接返回
+            if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
+                return relativePath;
+            }
+            
+            // 获取当前页面的协议和域名
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            
+            // 处理相对路径
+            let path = relativePath;
+            
+            // 如果以./开头，去掉./
+            if (path.startsWith('./')) {
+                path = path.substring(2);
+            }
+            
+            // 构建完整URL
+            return `${protocol}//${host}/${path}`;
+        }
 
         // 计算总存储空间
         function calculateTotalStorage() {
@@ -1274,9 +1296,12 @@
                 `<span class="book-tag" data-tag="${tag}">#${tag}</span>`
             ).join('');
             
+            // 生成完整URL
+            const fullUrl = getFullUrl(book.fileUrl);
+            
             return `
                 <div class="book-card" data-id="${book.id}">
-                    <div class="book-cover-container" data-file-url="${book.fileUrl}">
+                    <div class="book-cover-container" data-file-url="${fullUrl}">
                         <div class="book-cover" style="background-image: url('${book.cover}')"></div>
                         <div class="book-format">${book.format}</div>
                         <div class="preview-overlay">
@@ -1299,9 +1324,12 @@
                         </div>
                         
                         <div class="book-url-container">
-                            <div class="url-label">书籍链接：</div>
-                            <div class="book-url">${book.fileUrl}</div>
-                            <button class="copy-url-btn" data-url="${book.fileUrl}">复制链接</button>
+                            <div class="url-label">
+                                <span>书籍链接：</span>
+                                <span class="original-url">原始路径: ${book.fileUrl}</span>
+                            </div>
+                            <div class="book-url">${fullUrl}</div>
+                            <button class="copy-url-btn" data-url="${fullUrl}">复制完整链接</button>
                         </div>
                     </div>
                 </div>
@@ -1386,7 +1414,7 @@
             
             try {
                 await navigator.clipboard.writeText(text);
-                button.textContent = '已复制！';
+                button.textContent = '已复制完整链接！';
                 button.classList.add('copied');
                 
                 // 3秒后恢复原始状态
@@ -1403,7 +1431,7 @@
                 
                 try {
                     document.execCommand('copy');
-                    button.textContent = '已复制！';
+                    button.textContent = '已复制完整链接！';
                     button.classList.add('copied');
                     
                     setTimeout(() => {
